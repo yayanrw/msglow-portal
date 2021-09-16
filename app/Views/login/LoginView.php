@@ -66,7 +66,7 @@
                                             <label class="form-check-label" for="remember-me"> Remember Me</label>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary w-100" tabindex="4" onclick="window.location.href='<?= base_url('user/home'); ?>'">Sign in</button>
+                                    <button type="button" class="btn btn-primary w-100" tabindex="4" onclick="window.location.href='<?= base_url('User/Home'); ?>'">Sign in</button>
                                 </form>
                             </div>
                         </div>
