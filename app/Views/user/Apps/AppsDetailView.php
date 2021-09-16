@@ -71,7 +71,7 @@
                             ratione laboriosam blanditiis reiciendis facilis itaque! Quod consequuntur
                             voluptate maxime error cum.
                         </p>
-                        <a href="./document.html" class="btn btn-outline-primary waves-effect">Open
+                        <a href="<?= base_url('User/Documentations/detail/1'); ?>" class="btn btn-outline-primary waves-effect">Open
                             Document</a>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                             ratione laboriosam blanditiis reiciendis facilis itaque! Quod consequuntur
                             voluptate maxime error cum.
                         </p>
-                        <a href="./document.html" class="btn btn-outline-primary waves-effect">Open
+                        <a href="<?= base_url('User/Documentations/detail/1'); ?>" class="btn btn-outline-primary waves-effect">Open
                             Document</a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                             ratione laboriosam blanditiis reiciendis facilis itaque! Quod consequuntur
                             voluptate maxime error cum.
                         </p>
-                        <a href="./document.html" class="btn btn-outline-primary waves-effect">Open
+                        <a href="<?= base_url('User/Documentations/detail/1'); ?>" class="btn btn-outline-primary waves-effect">Open
                             Document</a>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                             ratione laboriosam blanditiis reiciendis facilis itaque! Quod consequuntur
                             voluptate maxime error cum.
                         </p>
-                        <a href="./document.html" class="btn btn-outline-primary waves-effect">Open
+                        <a href="<?= base_url('User/Documentations/detail/1'); ?>" class="btn btn-outline-primary waves-effect">Open
                             Document</a>
                     </div>
                 </div>
