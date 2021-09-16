@@ -46,18 +46,20 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h2 class="card-title fw-bold mb-1">Welcome to Msglow Portal! 👋</h2>
                                 <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
-                                <form class="auth-login-form mt-2" action="/pages/home.html" method="POST">
+                                <form id="frmLogin" class="auth-login-form mt-2" action="<?= base_url('Login/Auth'); ?>" method="POST">
                                     <div class="mb-1">
-                                        <label class="form-label" for="login-email">Email</label>
-                                        <input class="form-control" id="login-email" type="text" name="login-email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
+                                        <label class="form-label" for="users_email">Email</label>
+                                        <input class="form-control" id="users_email" type="text" name="users_email" placeholder="john@example.com" aria-describedby="users_email" autofocus="" tabindex="1" />
                                     </div>
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
-                                            <label class="form-label" for="login-password">Password</label><a href="auth-forgot-password-cover.html"><small>Forgot
-                                                    Password?</small></a>
+                                            <label class="form-label" for="users_password">Password</label>
+                                            <a href="auth-forgot-password-cover.html">
+                                                <small>Forgot Password?</small>
+                                            </a>
                                         </div>
                                         <div class="input-group input-group-merge form-password-toggle">
-                                            <input class="form-control form-control-merge" id="login-password" type="password" name="login-password" placeholder="············" aria-describedby="login-password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
+                                            <input class="form-control form-control-merge" id="users_password" type="password" name="users_password" placeholder="············" aria-describedby="users_password" tabindex="2" /><span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
                                         </div>
                                     </div>
                                     <div class="mb-1">
@@ -66,7 +68,10 @@
                                             <label class="form-check-label" for="remember-me"> Remember Me</label>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-primary w-100" tabindex="4" onclick="window.location.href='<?= base_url('User/Home'); ?>'">Sign in</button>
+                                    <button id="btnSubmit" type="submit" class="btn btn-primary w-100" tabindex="4">
+                                        <span id="btnSubmitLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
+                                        Sign in
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -79,6 +84,12 @@
     <!-- END: Content-->
 
     <?= $this->include('layout/JsView'); ?>
+    <script>
+        $('#frmLogin').on('submit', function(e) {
+            $('#btnSubmit').prop('disabled', true)
+            $('#btnSubmitLoading').prop('hidden', false)
+        });
+    </script>
 
 </body>
 <!-- END: Body-->
