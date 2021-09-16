@@ -40,7 +40,7 @@
                         <span class="ps-1 text-black">@Username</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="auth-login-cover.html">
+                        <a class="dropdown-item" href="<?= base_url(); ?>">
                             <i class="me-50" data-feather="power"></i> Logout
                         </a>
                     </div>
