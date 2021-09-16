@@ -30,7 +30,7 @@
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
                 <li class="nav-item">
-                    <a class="text-black" href="<?= base_url('user/sopdocument'); ?>">SOP Documents</a>
+                    <a class="text-black" href="<?= base_url('User/SopDocuments'); ?>">SOP Documents</a>
                 </li>
                 <li class="nav-item dropdown dropdown-user ps-3"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar">
@@ -51,7 +51,7 @@
     <!-- END: Header-->
 
     <!-- BEGIN: Content-->
-    <div class="app-content content bg-white m-0 mt-1 pt-5 pb-3">
+    <div class="app-content content bg-white m-0 mt-2 pt-5 pb-3">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl ps-2 pe-2">
