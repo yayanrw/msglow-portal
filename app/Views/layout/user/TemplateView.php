@@ -1,4 +1,3 @@
-li
 <!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 
@@ -11,8 +10,8 @@ li
     <meta name="author" content="msglow">
     <title>Msglow Portal • Home</title>
 
-    <?= $this->include('layout/CssView'); ?>
-    <?= $this->renderSection('customCss'); ?>
+    <?= $this->include('Layout/CssView'); ?>
+    <?= $this->renderSection('CustomCss'); ?>
 
 </head>
 <!-- END: Head-->
@@ -52,14 +51,14 @@ li
     <!-- END: Header-->
 
     <!-- BEGIN: Content-->
-    <div class="app-content content bg-white m-0 mt-1 pt-5">
+    <div class="app-content content bg-white m-0 mt-1 pt-5 pb-3">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper container-xxl ps-2 pe-2">
             <div class="content-body">
 
                 <!-- Content -->
-                <?= $this->renderSection('content'); ?>
+                <?= $this->renderSection('Content'); ?>
                 <!-- End content -->
 
             </div>
@@ -76,7 +75,7 @@ li
     </footer>
     <!-- END: Footer-->
 
-    <?= $this->include('layout/JsView'); ?>
+    <?= $this->include('Layout/JsView'); ?>
     <?= $this->renderSection('customJs'); ?>
 
 </body>

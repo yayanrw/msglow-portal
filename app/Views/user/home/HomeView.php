@@ -1,11 +1,11 @@
-<?= $this->extend('layout/user/TemplateView'); ?>
+<?= $this->extend('Layout/User/TemplateView'); ?>
 
-<?= $this->section('customCss'); ?>
+<?= $this->section('CustomCss'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
-<?= $this->include('user/home/HomeCssView'); ?>
+<?= $this->include('User/Home/HomeCssView'); ?>
 <?= $this->endSection(); ?>
 
-<?= $this->section('content'); ?>
+<?= $this->section('Content'); ?>
 
 <!-- Knowledge base Jumbotron -->
 <section id="knowledge-base-search">
@@ -33,7 +33,7 @@
 <!-- Knowledge base -->
 <section id="knowledge-base-content" class="pt-3">
     <div class="row">
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-primary w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-danger w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-success w-20 m-0">
                 <div class="card-body p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-warning w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-info w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -114,7 +114,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-secondary w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -130,7 +130,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-primary w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -159,7 +159,7 @@
         </div>
 
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-secondary w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -187,7 +187,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-success w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -215,7 +215,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-danger w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -243,7 +243,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-warning w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -271,7 +271,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-info w-20 m-0">
                 <div class="card-body p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
@@ -291,7 +291,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-dark w-20 m-0">
                 <div class="card-body p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 100 100">
@@ -322,7 +322,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-primary w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -350,7 +350,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-secondary w-20 m-0">
                 <div class="card-body p-1">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 100 100">
@@ -368,7 +368,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-success w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -393,7 +393,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-danger w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -409,7 +409,7 @@
             </div>
         </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='./detail.html'">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
             <div class="card text-center bg-warning w-20 m-0">
                 <div class="card-body p-1">
                     <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
