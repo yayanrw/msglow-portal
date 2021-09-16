@@ -442,10 +442,10 @@
                 <div class="card-body">
                     <h5 class="card-title text-black fw-bolder">Category #1</h5>
                     <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #4</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
                     </ul>
                 </div>
             </div>
@@ -455,10 +455,10 @@
                 <div class="card-body">
                     <h5 class="card-title text-black fw-bolder">Category #2</h5>
                     <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #4</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
                     </ul>
                 </div>
             </div>
@@ -468,10 +468,10 @@
                 <div class="card-body">
                     <h5 class="card-title text-black fw-bolder">Category #3</h5>
                     <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="#" class="card-link">Sub Category #4</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
+                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
                     </ul>
                 </div>
             </div>
