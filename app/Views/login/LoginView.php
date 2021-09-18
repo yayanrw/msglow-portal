@@ -11,7 +11,7 @@
 
     <title>Msglow Portal</title>
 
-    <?= $this->include('layout/CssView'); ?>
+    <?= $this->include('Layout/CssView'); ?>
 
 </head>
 <!-- END: Head-->
@@ -83,7 +83,7 @@
     </div>
     <!-- END: Content-->
 
-    <?= $this->include('layout/JsView'); ?>
+    <?= $this->include('Layout/JsView'); ?>
     <script>
         $('#frmLogin').on('submit', function(e) {
             $('#btnSubmit').prop('disabled', true)
