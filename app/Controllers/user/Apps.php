@@ -3,16 +3,30 @@
 namespace App\Controllers\user;
 
 use App\Controllers\BaseController;
+use App\Models\AppsModel;
 
 class Apps extends BaseController
 {
-    public function index()
+    protected $appsModel;
+
+    public function __construct()
+    {
+        $this->appsModel = new AppsModel();
+    }
+
+    public function Index()
     {
         return "Index";
     }
 
-    public function detail($pid = null)
+    public function Detail($apps_pid)
     {
-        return view('User/Apps/AppsDetailView');
+        $apps = $this->appsModel->find($apps_pid);
+
+        $data = [
+            'title'     => $apps['apps_name'] ?? "No Data",
+            'apps'      => $apps
+        ];
+        return view('User/Apps/AppsDetailView', $data);
     }
 }
