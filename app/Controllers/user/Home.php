@@ -14,7 +14,7 @@ class Home extends BaseController
         $this->appsModel = new AppsModel();
     }
 
-    public function index()
+    public function Index()
     {
         $data = [
             'title'   => 'Home',
