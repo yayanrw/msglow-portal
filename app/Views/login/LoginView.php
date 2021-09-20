@@ -49,7 +49,7 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h2 class="card-title fw-bold mb-1">Welcome to Msglow Portal! 👋</h2>
                                 <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
-                                <form id="frmLogin" class="auth-login-form mt-2" action="<?= base_url('Login/Auth'); ?>" method="POST">
+                                <form id="frmLogin" class="auth-login-form mt-2" action="<?= base_url('auth'); ?>" method="POST">
                                     <div class="mb-1">
                                         <label class="form-label" for="users_email">Email</label>
                                         <input class="form-control" id="users_email" type="text" name="users_email" placeholder="email@example.com" aria-describedby="users_email" autofocus="" tabindex="1" required />
