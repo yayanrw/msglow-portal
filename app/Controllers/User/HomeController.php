@@ -18,7 +18,10 @@ class HomeController extends BaseController
     {
         $data = [
             'title'   => 'Home',
-            'apps'  => $this->appsModel->findAll()
+            'apps'  => $this->appsModel
+                ->where('is_active', true)
+                ->get()
+                ->getResult('array')
         ];
         return view('User/Home/HomeView', $data);
     }
