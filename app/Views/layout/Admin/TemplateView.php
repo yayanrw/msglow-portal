@@ -60,7 +60,7 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class="<?= $title == 'Home' ? 'active' : null; ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= base_url('admin'); ?>">
-                        <i data-feather='layers'></i>
+                        <i data-feather='home'></i>
                         <span class="menu-title text-truncate" data-i18n="Email">Home</span>
                     </a>
                 </li>
@@ -72,19 +72,19 @@
                 </li>
                 <li class="<?= $title == 'Apps Documentation' ? 'active' : null; ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/apps-documentation'); ?>">
-                        <i data-feather='grid'></i>
+                        <i data-feather='codepen'></i>
                         <span class="menu-title text-truncate" data-i18n="Chat">Apps Documentation</span>
                     </a>
                 </li>
                 <li class="<?= $title == 'SOP Documents' ? 'active' : null; ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/sop-documents'); ?>">
-                        <i data-feather='paperclip'></i>
+                        <i data-feather='book-open'></i>
                         <span class="menu-title text-truncate" data-i18n="Chat">SOP Documents</span>
                     </a>
                 </li>
                 <li class="<?= $title == 'Users' ? 'active' : null; ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/users'); ?>">
-                        <i data-feather='paperclip'></i>
+                        <i data-feather='user'></i>
                         <span class="menu-title text-truncate" data-i18n="Chat">Users</span>
                     </a>
                 </li>
