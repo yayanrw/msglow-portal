@@ -47,6 +47,9 @@ class LoginController extends BaseController
                 ];
                 $session->set($sessionData);
 
+                $this->usersModel->update($users['users_email'], [
+                    'last_login'   => date("Y-m-d H:i:s")
+                ]);
                 return $users['is_administrator'] ? redirect()->to('/admin') : redirect()->to('/user');
             } else {
                 $session->setFlashdata('login_notification', 'Your email or password is incorrect');
