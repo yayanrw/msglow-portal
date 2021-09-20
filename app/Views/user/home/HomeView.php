@@ -13,7 +13,7 @@
         <div class="col-12">
             <div class="card knowledge-base-bg text-center" style="background-image: url('../assets/img/banner/banner_home.jpg')">
                 <div class="card-body">
-                    <h2 class="text-black">Welcome back, Yayan Rahmat Wijaya</h2>
+                    <h2 class="text-black">Welcome back, <?= session()->get('users_name'); ?></h2>
                     <p class="card-text mb-2 text-black">
                         <span>What are you looking for today?</span>
                     </p>
