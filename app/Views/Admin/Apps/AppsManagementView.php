@@ -52,13 +52,13 @@
                                         <i data-feather='edit-3'></i>
                                     </a>
                                     <?php if ($a['is_active']) { ?>
-                                        <button type="button" class="btn btn-icon btn-danger waves-effect waves-float waves-light">
+                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light">
                                             <i data-feather='lock'></i>
-                                        </button>
+                                        </a>
                                     <?php } else { ?>
-                                        <button type="button" class="btn btn-icon btn-success waves-effect waves-float waves-light">
+                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light">
                                             <i data-feather='upload-cloud'></i>
-                                        </button>
+                                        </a>
                                     <?php } ?>
                                 </td>
                             </tr>
