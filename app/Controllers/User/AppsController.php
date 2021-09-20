@@ -14,11 +14,6 @@ class AppsController extends BaseController
         $this->appsModel = new AppsModel();
     }
 
-    public function Index()
-    {
-        return "Index";
-    }
-
     public function Detail($apps_pid)
     {
         $apps = $this->appsModel->find($apps_pid);
