@@ -31,19 +31,20 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Login::index');
-$routes->get('login', 'Login::index');
+$routes->get('/', 'Login::Index');
+$routes->get('login', 'Login::Index');
 $routes->get('logout', 'Login::Logout');
 $routes->post('auth', 'Login::Auth');
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
-    $routes->add('/', 'Admin\Home::index');
-    $routes->add('home', 'Admin\Home::index');
+    $routes->add('/', 'Admin\Home::Index');
+    $routes->add('home', 'Admin\Home::Index');
 });
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
-    $routes->add('/', 'User\Home::index');
-    $routes->add('apps', 'User\Apps::index');
-    $routes->add('documentations', 'User\Documentations::index');
-    $routes->add('sopdocuments', 'User\SopDocuments::index');
+    $routes->add('/', 'User\Home::Index');
+    $routes->add('apps', 'User\Apps::Index');
+    $routes->add('apps/detail/(:any)', 'User\Apps::Detail/$1');
+    $routes->add('documentations', 'User\Documentations::Index');
+    $routes->add('sopdocuments', 'User\SopDocuments::Index');
 });
 
 /*
