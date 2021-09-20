@@ -2,15 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\LogLoginModel;
 use App\Models\UsersModel;
 
 class LoginController extends BaseController
 {
     protected $usersModel;
+    protected $logLoginModel;
 
     public function __construct()
     {
         $this->usersModel = new UsersModel();
+        $this->logLoginModel = new LogLoginModel();
     }
     public function Index()
     {
@@ -37,6 +40,7 @@ class LoginController extends BaseController
 
         if ($users) {
             if (password_verify($loginInformation['users_password'], $users['users_password'])) {
+                //store session
                 $sessionData = [
                     'users_email'      => $users['users_email'],
                     'users_name'       => $users['users_name'],
@@ -47,9 +51,19 @@ class LoginController extends BaseController
                 ];
                 $session->set($sessionData);
 
+                //update users
                 $this->usersModel->update($users['users_email'], [
                     'last_login'   => date("Y-m-d H:i:s")
                 ]);
+
+                //insert log
+                $this->logLoginModel->insert([
+                    'users_email'  => $users['users_email'],
+                    'device'       => null,
+                    'ip'           => null,
+                    'location'     => null,
+                ]);
+
                 return $users['is_administrator'] ? redirect()->to('/admin') : redirect()->to('/user');
             } else {
                 $session->setFlashdata('login_notification', 'Your email or password is incorrect');
