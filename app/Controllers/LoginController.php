@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UsersModel;
 
-class Login extends BaseController
+class LoginController extends BaseController
 {
     protected $usersModel;
 

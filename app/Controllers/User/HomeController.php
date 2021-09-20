@@ -5,7 +5,7 @@ namespace App\Controllers\user;
 use App\Controllers\BaseController;
 use App\Models\AppsModel;
 
-class Home extends BaseController
+class HomeController extends BaseController
 {
     protected $appsModel;
 

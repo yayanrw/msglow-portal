@@ -4,7 +4,7 @@ namespace App\Controllers\user;
 
 use App\Controllers\BaseController;
 
-class SopDocuments extends BaseController
+class SopDocumentsController extends BaseController
 {
     public function index()
     {

@@ -4,7 +4,7 @@ namespace App\Controllers\user;
 
 use App\Controllers\BaseController;
 
-class Documentations extends BaseController
+class DocumentationsController extends BaseController
 {
     public function index()
     {
