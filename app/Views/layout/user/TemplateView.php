@@ -8,7 +8,7 @@
     <meta name="description" content="Msglow Portal Apps">
     <meta name="keywords" content="msglow portal, msglow app">
     <meta name="author" content="msglow">
-    <title>Msglow Portal • Home</title>
+    <title>Msglow Portal <?= isset($title) ? ' • ' . $title : null; ?></title>
 
     <?= $this->include('Layout/CssView'); ?>
     <?= $this->renderSection('CustomCss'); ?>
@@ -37,10 +37,10 @@
                             <img class="round" src="<?= base_url('assets/img/avatar/1.png'); ?>" alt="avatar" height="40" width="40">
                             <span class="avatar-status-online"></span>
                         </span>
-                        <span class="ps-1 text-black">@Username</span>
+                        <span class="ps-1 text-black"><?= session()->get('users_name'); ?></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="<?= base_url(); ?>">
+                        <a class="dropdown-item" href="<?= base_url('logout'); ?>">
                             <i class="me-50" data-feather="power"></i> Logout
                         </a>
                     </div>
