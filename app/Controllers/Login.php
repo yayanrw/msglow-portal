@@ -19,6 +19,7 @@ class Login extends BaseController
 
     public function Auth()
     {
+        $session = session();
         $loginInformation = [
             'users_email' => $this->request->getVar('users_email'),
             'users_password' => $this->request->getVar('users_password')
@@ -28,12 +29,29 @@ class Login extends BaseController
 
         if ($users) {
             if (password_verify($loginInformation['users_password'], $users['users_password'])) {
+                $sessionData = [
+                    'users_email'      => $users['users_email'],
+                    'users_name'       => $users['users_name'],
+                    'users_division'   => $users['users_division'],
+                    'logged_in'     => true,
+                    'last_logged_in'   => date("Y-m-d H:i:s")
+                ];
+                $session->set($sessionData);
                 return redirect()->to('/User/Home');
             } else {
-                echo "NOT OK";
+                $session->setFlashdata('login_notification', 'Your email or password is incorrect');
+                return redirect()->to('/Login');
             }
         } else {
-            echo 'Email is incorrect';
+            $session->setFlashdata('login_notification', 'Your email or password  is incorrect');
+            return redirect()->to('/Login');
         }
+    }
+
+    public function Logout()
+    {
+        $session = session();
+        $session->destroy();
+        return redirect()->to('/Login');
     }
 }
