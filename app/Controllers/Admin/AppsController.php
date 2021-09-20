@@ -40,4 +40,13 @@ class AppsController extends BaseController
         ];
         return view('Admin/Apps/AppsInputView', $data);
     }
+
+    public function Active($apps_pid = null)
+    {
+        $apps = $this->appsModel->find($apps_pid);
+        $this->appsModel->update($apps_pid, [
+            'is_active'   => !$apps['is_active']
+        ]);
+        return redirect()->back();
+    }
 }
