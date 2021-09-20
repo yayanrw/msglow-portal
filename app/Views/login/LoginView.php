@@ -52,7 +52,7 @@
                                 <form id="frmLogin" class="auth-login-form mt-2" action="<?= base_url('Login/Auth'); ?>" method="POST">
                                     <div class="mb-1">
                                         <label class="form-label" for="users_email">Email</label>
-                                        <input class="form-control" id="users_email" type="text" name="users_email" placeholder="john@example.com" aria-describedby="users_email" autofocus="" tabindex="1" required />
+                                        <input class="form-control" id="users_email" type="text" name="users_email" placeholder="email@example.com" aria-describedby="users_email" autofocus="" tabindex="1" required />
                                     </div>
                                     <div class="mb-1">
                                         <div class="d-flex justify-content-between">
