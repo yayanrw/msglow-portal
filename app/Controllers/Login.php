@@ -14,7 +14,15 @@ class Login extends BaseController
     }
     public function Index()
     {
-        return view('Login/LoginView');
+        if (session()->get('logged_in')) {
+            if (session()->get('is_administrator')) {
+                return redirect()->to('/admin');
+            } else {
+                return redirect()->to('/user');
+            }
+        } else {
+            return view('Login/LoginView');
+        }
     }
 
     public function Auth()
@@ -33,18 +41,20 @@ class Login extends BaseController
                     'users_email'      => $users['users_email'],
                     'users_name'       => $users['users_name'],
                     'users_division'   => $users['users_division'],
-                    'logged_in'     => true,
+                    'is_administrator' => $users['is_administrator'],
+                    'logged_in'        => true,
                     'last_logged_in'   => date("Y-m-d H:i:s")
                 ];
                 $session->set($sessionData);
-                return redirect()->to('/User/Home');
+
+                return $users['is_administrator'] ? redirect()->to('/admin') : redirect()->to('/user');
             } else {
                 $session->setFlashdata('login_notification', 'Your email or password is incorrect');
-                return redirect()->to('/Login');
+                return redirect()->to('/login');
             }
         } else {
             $session->setFlashdata('login_notification', 'Your email or password  is incorrect');
-            return redirect()->to('/Login');
+            return redirect()->to('/login');
         }
     }
 
@@ -52,6 +62,6 @@ class Login extends BaseController
     {
         $session = session();
         $session->destroy();
-        return redirect()->to('/Login');
+        return redirect()->to('/login');
     }
 }
