@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/colors.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/components.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/vertical-menu.min.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/form-validation.css'); ?>">
-<link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/authentication.css'); ?>">
+
+<style>
+    .toast {
+        margin-top: 45px !important;
+    }
+</style>
 <!-- End CSS-->
