@@ -35,7 +35,7 @@
     <div class="row">
         <?php
         foreach ($apps as $a) { ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('User/Apps/Detail/1'); ?>'">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
                 <div class="card text-center bg-primary w-20 m-0">
                     <div class="card-body p-1">
                         <img src="<?= base_url('assets/img/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
