@@ -9,15 +9,14 @@
 <section id="knowledge-base-search">
     <div class="row">
         <div class="col-12">
-            <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/img/banner/banner_sales.jpg'); ?>')">
+            <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/img/banner/' . $apps['apps_banner_img']); ?>')">
                 <div class="card-body">
                     <div class="row">
                         <div class="text-end col-lg-3">
-                            <h1 class="text-black" style="font-size: 56px;">Sales</h1>
+                            <h1 class="text-black" style="font-size: 56px;"><?= $apps['apps_subname']; ?></h1>
                             <p class="d-inline card-text mb-2 text-black">
-                                <span>ERP Systems</span>
+                                <span><?= $apps['apps_name']; ?></span>
                             </p>
-
                         </div>
                     </div>
                 </div>
@@ -30,27 +29,12 @@
     <div class="row">
         <div class="col-lg-8">
             <h3 class="text-black fw-bolder">Short description intro</h3>
-            <p class="text-black">Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Praesentium
-                aspernatur eum natus
-                laudantium voluptatum quaerat modi, consectetur architecto molestias perspiciatis,
-                dolorum culpa inventore eos temporibus. Esse rerum doloremque voluptate magnam
-                blanditiis, atque voluptatem porro sed accusantium et sapiente! A neque minima
-                reiciendis facere, blanditiis fugit exercitationem assumenda nesciunt dolore consequatur
-                deserunt quos illum, esse dolor nam ab dicta debitis qui commodi numquam quam
-                dignissimos consectetur! Quos, explicabo quibusdam! Modi rerum et tempore at delectus
-                nemo, numquam veniam dolores, molestias itaque optio hic quam vitae labore corrupti
-                similique aliquam excepturi sit, quae inventore animi architecto magnam atque! Qui vitae
-                hic vel minus aliquam quis, repudiandae possimus, autem laborum vero culpa voluptatem
-                quam neque quibusdam saepe magni quidem esse ullam sit quisquam ab delectus placeat
-                ratione! Accusamus laboriosam at sunt numquam tempora ipsam? Quasi dolore vel
-                consectetur tenetur accusantium eligendi esse quaerat incidunt ipsam? In recusandae illo
-                natus cumque ut exercitationem aliquid.</p>
+            <p class="text-black"><?= $apps['apps_desc']; ?></p>
         </div>
         <div class="col-lg-3 offset-lg-1">
             <div class="row">
                 <h6 class="text-black">Go to:</h6>
-                <a href="#" class="btn btn-primary btn-lg pt-2 pb-2">Sales ERP System</a>
+                <a href="<?= $apps['apps_url']; ?>" class="btn btn-primary btn-lg pt-2 pb-2"><?= $apps['apps_subname']; ?> <?= $apps['apps_name']; ?></a>
             </div>
         </div>
     </div>
