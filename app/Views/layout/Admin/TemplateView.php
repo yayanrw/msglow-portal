@@ -128,7 +128,7 @@
     <!-- END: Footer-->
 
     <?= $this->include('Layout/JsView'); ?>
-    <?= $this->renderSection('customJs'); ?>
+    <?= $this->renderSection('CustomJs'); ?>
 
 </body>
 <!-- END: Body-->
