@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/colors.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/components.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/vertical-menu.min.css'); ?>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 <style>
     .toast {
