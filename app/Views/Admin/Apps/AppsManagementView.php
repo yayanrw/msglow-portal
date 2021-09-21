@@ -2,6 +2,32 @@
 
 <?= $this->section('CustomCss'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+
+<style>
+    .dataTables_length {
+        color: #fff;
+        padding-left: 20px;
+    }
+
+    .dataTables_filter {
+        color: #fff;
+        padding-right: 20px;
+    }
+
+    div.dataTables_wrapper .dataTables_info {
+        color: #fff;
+        padding-left: 20px;
+        padding-top: 20apx;
+        padding-bottom: 20px;
+    }
+
+    .dataTables_paginate {
+        padding-right: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+</style>
 <?= $this->endSection(); ?>
 
 <?= $this->section('ContentButton'); ?>
@@ -21,6 +47,8 @@
 <?= $this->endSection(); ?>
 
 <?= $this->section('CustomJs'); ?>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script>
     <?php
     $flashData = session()->getFlashdata('apps_notification');
@@ -28,6 +56,10 @@
         echo "toastr.success('" . $flashData . "', 'Notifications')";
     }
     ?>
+
+    $(document).ready(function() {
+        $("#datatable").DataTable({})
+    })
 </script>
 <?= $this->endSection(); ?>
 
@@ -39,7 +71,7 @@
                 <h4 class="card-title text-white fw-bolder">List of all apps</h4>
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table id="datatable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th class="text-black" style="background-color: #F0EFFA;">No</th>
@@ -59,15 +91,15 @@
                                 <td class="bg-white"><?= $a['apps_date_release']; ?></td>
                                 <td class="bg-white"><a href="<?= $a['apps_url']; ?>" target="_blank"><?= $a['apps_url']; ?></a></td>
                                 <td class="bg-white">
-                                    <a class="btn btn-icon btn-warning waves-effect waves-float waves-light" href="#">
+                                    <a class="btn btn-icon btn-warning waves-effect waves-float waves-light" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
                                         <i data-feather='edit-3'></i>
                                     </a>
                                     <?php if ($a['is_active']) { ?>
-                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light">
+                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Non-aktifkan app">
                                             <i data-feather='lock'></i>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light">
+                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Aktifkan app">
                                             <i data-feather='upload-cloud'></i>
                                         </a>
                                     <?php } ?>
