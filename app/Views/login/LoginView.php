@@ -11,7 +11,7 @@
 
     <title>Msglow Portal</title>
 
-    <?= $this->include('Layout/CssView'); ?>
+    <?= $this->include('Layout\CssView'); ?>
     <link rel="stylesheet" href="<?= base_url('assets/css/authentication.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/form-validation.css'); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
