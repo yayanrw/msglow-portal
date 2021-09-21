@@ -42,6 +42,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->add('apps-documentation', 'Admin\AppsController::Documentation');
     $routes->add('apps/input', 'Admin\AppsController::Input');
     $routes->post('apps/insert', 'Admin\AppsController::Insert');
+    $routes->add('apps/edit/(:any)', 'Admin\AppsController::Edit/$1');
+    $routes->post('apps/update', 'Admin\AppsController::Update');
     $routes->add('apps/active/(:any)', 'Admin\AppsController::Active/$1');
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
     $routes->add('users', 'Admin\UsersController::Index');
