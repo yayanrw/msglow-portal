@@ -50,6 +50,10 @@
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script>
+    $(document).ready(function() {
+        $("#datatable").DataTable({})
+    })
+
     <?php
     $flashData = session()->getFlashdata('apps_notification');
     if ($flashData) {
@@ -57,9 +61,25 @@
     }
     ?>
 
-    $(document).ready(function() {
-        $("#datatable").DataTable({})
-    })
+    btnActive = (apps_pid) => {
+        $.ajax({
+            url: '<?= base_url('admin/apps/active'); ?>/' + apps_pid,
+            method: "GET",
+            dataType: 'json',
+            success: function(data, status, xhr) {
+                if (data.status) {
+                    toastr.success(data.message, 'Notifications')
+                    $('#datatable').DataTable().ajax.reload();
+                } else {
+                    toastr.error(data.message, 'Notifications')
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("Status: " + textStatus);
+                alert("Error: " + errorThrown);
+            }
+        })
+    }
 </script>
 <?= $this->endSection(); ?>
 
@@ -91,7 +111,7 @@
                                 <td class="bg-white"><?= $a['apps_date_release']; ?></td>
                                 <td class="bg-white"><a href="<?= $a['apps_url']; ?>" target="_blank"><?= $a['apps_url']; ?></a></td>
                                 <td class="bg-white">
-                                    <a class="btn btn-icon btn-warning waves-effect waves-float waves-light" href="#" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
+                                    <a href="<?= base_url('admin/apps/edit/' . $a['apps_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
                                         <i data-feather='edit-3'></i>
                                     </a>
                                     <?php if ($a['is_active']) { ?>
