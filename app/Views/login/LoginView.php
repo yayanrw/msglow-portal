@@ -92,6 +92,15 @@
     <script src="<?= base_url('assets/js/app.min.js'); ?>"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
+        $(window).on('load', function() {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+        })
+
         $(function() {
             'use strict';
             var pageLoginForm = $('.auth-login-form');
