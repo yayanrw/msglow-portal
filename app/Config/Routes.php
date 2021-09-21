@@ -51,8 +51,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->add('/', 'User\HomeController::Index');
     $routes->add('apps', 'User\AppsController::Index');
-    $routes->add('apps/detail/(:any)', 'User\AppsController::Detail/$1
-    ');
+    $routes->add('apps/detail/(:any)', 'User\AppsController::Detail/$1');
     $routes->add('documentations', 'User\DocumentationsController::Index');
     $routes->add('sop-documents', 'User\SopDocumentsController::Index');
 });
