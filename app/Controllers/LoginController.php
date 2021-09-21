@@ -24,7 +24,7 @@ class LoginController extends BaseController
                 return redirect()->to('/user');
             }
         } else {
-            return view('errors\html\error_404');
+            return view('errors/html/error_404');
         }
     }
 
