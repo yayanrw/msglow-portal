@@ -24,7 +24,7 @@ class LoginController extends BaseController
                 return redirect()->to('/user');
             }
         } else {
-            return view('Login/LoginView');
+            return view('login/loginview');
         }
     }
 
