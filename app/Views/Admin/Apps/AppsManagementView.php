@@ -20,6 +20,17 @@
 </div>
 <?= $this->endSection(); ?>
 
+<?= $this->section('CustomJs'); ?>
+<script>
+    <?php
+    $flashData = session()->getFlashdata('apps_notification');
+    if ($flashData) {
+        echo "toastr.success('" . $flashData . "', 'Notifications')";
+    }
+    ?>
+</script>
+<?= $this->endSection(); ?>
+
 <?= $this->section('Content'); ?>
 <div class="row">
     <div class="col-12">
