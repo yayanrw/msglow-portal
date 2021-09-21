@@ -38,7 +38,7 @@ $routes->post('auth', 'LoginController::Auth');
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->add('/', 'Admin\HomeController::Index');
     $routes->add('home', 'Admin\HomeController::Index');
-    $routes->add('apps-management', 'Admin\AppsController::Management');
+    $routes->add('apps-management', 'Admin\AppsController::Index');
     $routes->add('apps-documentation', 'Admin\AppsController::Documentation');
     $routes->add('apps/input', 'Admin\AppsController::Input');
     $routes->post('apps/insert', 'Admin\AppsController::Insert');
