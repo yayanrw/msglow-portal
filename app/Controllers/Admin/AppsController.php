@@ -14,22 +14,13 @@ class AppsController extends BaseController
         $this->appsModel = new AppsModel();
     }
 
-    public function Management()
+    public function Index()
     {
         $data = [
             'title'   => 'Apps Management',
             'apps'  => $this->appsModel->findAll()
         ];
-        return view('Admin/Apps/AppsManagementView', $data);
-    }
-
-    public function Documentation()
-    {
-        $data = [
-            'title'   => 'Apps Documentation',
-            'apps'  => $this->appsModel->findAll()
-        ];
-        return view('Admin/Apps/AppsDocumentationView', $data);
+        return view('Admin/Apps/AppsView', $data);
     }
 
     public function Input()
@@ -38,6 +29,17 @@ class AppsController extends BaseController
             'title'   => 'Apps Management • Input New Apps',
         ];
         return view('Admin/Apps/AppsInputView', $data);
+    }
+
+    public function Edit($apps_pid = null)
+    {
+        $apps = $this->appsModel->find($apps_pid);
+
+        $data = [
+            'title'   => 'Apps Management • Edit Apps',
+            'apps'    => $apps
+        ];
+        return view('Admin/Apps/AppsEditView', $data);
     }
 
     public function Insert()
@@ -56,17 +58,6 @@ class AppsController extends BaseController
         ]);
         session()->setFlashdata('apps_notification', 'Saved successfully');
         return redirect()->to('admin/apps-management');
-    }
-
-    public function Edit($apps_pid = null)
-    {
-        $apps = $this->appsModel->find($apps_pid);
-
-        $data = [
-            'title'   => 'Apps Management • Edit Apps',
-            'apps'    => $apps
-        ];
-        return view('Admin/Apps/AppsEditView', $data);
     }
 
     public function Update()
