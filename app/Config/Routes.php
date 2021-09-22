@@ -51,11 +51,14 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     // apps-documentation
     $routes->add('apps-documentation', 'Admin\AppsDocumentationController::Index');
     $routes->add('apps-documentation/input', 'Admin\AppsDocumentationController::Input');
-    $routes->add('apps-documentation/insert', 'Admin\AppsDocumentationController::Insert');
+    $routes->post('apps-documentation/insert', 'Admin\AppsDocumentationController::Insert');
+    $routes->add('apps-documentation/edit/(:any)', 'Admin\AppsDocumentationController::Edit/$1');
+    $routes->post('apps-documentation/update', 'Admin\AppsDocumentationController::Update');
+    $routes->add('apps-documentation/active/(:any)', 'Admin\AppsDocumentationController::Active/$1');
 
     // apps-sub-category
     $routes->add('apps-sub-category/input', 'Admin\AppsSubCategoryController::Input');
-    $routes->add('apps-sub-category/insert', 'Admin\AppsSubCategoryController::Insert');
+    $routes->post('apps-sub-category/insert', 'Admin\AppsSubCategoryController::Insert');
 
     // sop-documents
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
