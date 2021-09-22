@@ -155,8 +155,8 @@ class AppsController extends BaseController
                 'is_active'   => !$apps['is_active']
             ]);
             $apps_name = $apps['apps_name'] . ' - ' . $apps['apps_subname'];
-            $message = $apps['is_active'] ? $apps_name . ' successfully deactivated' : 'Aplikasi ' . $apps_name . ' successfully activated';
-            return redirect()->back()->with('successMsg', $message); //code...
+            $message = $apps['is_active'] ? $apps_name . ' successfully disabled' : $apps_name . ' successfully enabled';
+            return redirect()->back()->with('successMsg', $message);
         } catch (\Throwable $th) {
             $this->logErrorModel->InsertLog(
                 $this->router->controllerName(),
