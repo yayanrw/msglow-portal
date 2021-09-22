@@ -81,11 +81,32 @@
                             <th class="text-black" style="background-color: #F0EFFA;">Title</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Category</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Sub-Category</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Published</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $no = 1;
+                        foreach ($apps_documentation as $key) { ?>
+                            <td class="bg-white"><?= $no++; ?></td>
+                            <td class="bg-white"><?= $key['apps_document_title']; ?></td>
+                            <td class="bg-white"><?= $key['apps_name']; ?> <?= $key['apps_subname']; ?></td>
+                            <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
+                            <td class="bg-white">
+                                <a href="<?= base_url('admin/apps-documentation/edit/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
+                                    <i data-feather='edit-3'></i>
+                                </a>
+                                <?php if ($key['is_active']) { ?>
+                                    <a href="<?= base_url('admin/apps-documentation/active/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable document">
+                                        <i data-feather='lock'></i>
+                                    </a>
+                                <?php } else { ?>
+                                    <a href="<?= base_url('admin/apps-documentation/active/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable document">
+                                        <i data-feather='upload-cloud'></i>
+                                    </a>
+                                <?php } ?>
+                            </td>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
