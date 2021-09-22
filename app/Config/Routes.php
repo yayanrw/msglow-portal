@@ -50,6 +50,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     // apps-documentation
     $routes->add('apps-documentation', 'Admin\AppsDocumentationController::Index');
+    $routes->add('apps-documentation/input', 'Admin\AppsDocumentationController::Input');
+    $routes->add('apps-documentation/insert', 'Admin\AppsDocumentationController::Insert');
 
     // apps-sub-category
     $routes->add('apps-sub-category/input', 'Admin\AppsSubCategoryController::Input');
