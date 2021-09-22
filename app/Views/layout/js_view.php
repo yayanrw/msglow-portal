@@ -31,5 +31,16 @@
         "showMethod": "slideDown",
         "hideMethod": "slideUp"
     }
+
+    <?php
+    $successflashData = session()->getFlashdata('successMsg');
+    if ($successflashData) {
+        echo "toastr.success('" . $successflashData . "', 'Notifications')";
+    }
+    $errorflashData = session()->getFlashdata('errorMsg');
+    if ($errorflashData) {
+        echo "toastr.error('" . $errorflashData . "', 'Notifications')";
+    }
+    ?>
 </script>
 <!-- End JS -->
