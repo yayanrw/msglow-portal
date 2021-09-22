@@ -53,6 +53,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     // apps-sub-category
     $routes->add('apps-sub-category/input', 'Admin\AppsSubCategoryController::Input');
+    $routes->add('apps-sub-category/insert', 'Admin\AppsSubCategoryController::Insert');
 
     // sop-documents
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
