@@ -33,7 +33,7 @@
 <?= $this->section('content_button'); ?>
 <div class="dt-action-buttons text-end">
     <div class="dt-buttons d-inline-flex">
-        <a class="dt-button create-new btn btn-primary" href="<?= base_url('admin/apps/input'); ?>">
+        <a class="dt-button create-new btn btn-primary" href="<?= base_url('admin/apps-management/input'); ?>">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus me-50 font-small-4">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -56,7 +56,7 @@
 
     btnActive = (apps_pid) => {
         $.ajax({
-            url: '<?= base_url('admin/apps/active'); ?>/' + apps_pid,
+            url: '<?= base_url('admin/apps-management/active'); ?>/' + apps_pid,
             method: "GET",
             dataType: 'json',
             success: function(data, status, xhr) {
@@ -104,15 +104,15 @@
                                 <td class="bg-white"><?= $a['apps_date_release']; ?></td>
                                 <td class="bg-white"><a href="<?= $a['apps_url']; ?>" target="_blank"><?= $a['apps_url']; ?></a></td>
                                 <td class="bg-white">
-                                    <a href="<?= base_url('admin/apps/edit/' . $a['apps_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
+                                    <a href="<?= base_url('admin/apps-management/edit/' . $a['apps_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
                                         <i data-feather='edit-3'></i>
                                     </a>
                                     <?php if ($a['is_active']) { ?>
-                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Non-aktifkan app">
+                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Non-aktifkan app">
                                             <i data-feather='lock'></i>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="<?= base_url('admin/apps/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Aktifkan app">
+                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Aktifkan app">
                                             <i data-feather='upload-cloud'></i>
                                         </a>
                                     <?php } ?>

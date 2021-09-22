@@ -9,7 +9,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body p-3">
-                <form class="form form-horizontal" action="<?= base_url('admin/apps/insert'); ?>" method="post" enctype="multipart/form-data">
+                <form class="form form-horizontal" action="<?= base_url('admin/apps-management/insert'); ?>" method="post" enctype="multipart/form-data">
                     <?= csrf_field(); ?>
                     <div class="row">
                         <div class="col-12">

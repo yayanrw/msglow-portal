@@ -9,7 +9,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body p-3">
-                <form class="form form-horizontal" action="<?= base_url('admin/apps/update'); ?>" method="post">
+            <form class="form form-horizontal" action="<?= base_url('admin/apps-management/update'); ?>" method="post">
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-1 row">

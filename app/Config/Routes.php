@@ -36,16 +36,28 @@ $routes->get('login', 'LoginController::Index');
 $routes->get('logout', 'LoginController::Logout');
 $routes->post('auth', 'LoginController::Auth');
 $routes->group('admin', ['filter' => 'auth'], function ($routes) {
+    // home
     $routes->add('/', 'Admin\HomeController::Index');
     $routes->add('home', 'Admin\HomeController::Index');
+
+    // apps-managaement
     $routes->add('apps-management', 'Admin\AppsController::Index');
+    $routes->add('apps-management/input', 'Admin\AppsController::Input');
+    $routes->post('apps-management/insert', 'Admin\AppsController::Insert');
+    $routes->add('apps-management/edit/(:any)', 'Admin\AppsController::Edit/$1');
+    $routes->post('apps-management/update', 'Admin\AppsController::Update');
+    $routes->add('apps-management/active/(:any)', 'Admin\AppsController::Active/$1');
+
+    // apps-documentation
     $routes->add('apps-documentation', 'Admin\AppsDocumentationController::Index');
-    $routes->add('apps/input', 'Admin\AppsController::Input');
-    $routes->post('apps/insert', 'Admin\AppsController::Insert');
-    $routes->add('apps/edit/(:any)', 'Admin\AppsController::Edit/$1');
-    $routes->post('apps/update', 'Admin\AppsController::Update');
-    $routes->add('apps/active/(:any)', 'Admin\AppsController::Active/$1');
+
+    // apps-sub-category
+    $routes->add('apps-sub-category/input', 'Admin\AppsSubCategoryController::Input');
+
+    // sop-documents
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
+
+    // users
     $routes->add('users', 'Admin\UsersController::Index');
 });
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
