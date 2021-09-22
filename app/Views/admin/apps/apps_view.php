@@ -108,11 +108,11 @@
                                         <i data-feather='edit-3'></i>
                                     </a>
                                     <?php if ($a['is_active']) { ?>
-                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Non-aktifkan app">
+                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable app">
                                             <i data-feather='lock'></i>
                                         </a>
                                     <?php } else { ?>
-                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Aktifkan app">
+                                        <a href="<?= base_url('admin/apps-management/active/' . $a['apps_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable app">
                                             <i data-feather='upload-cloud'></i>
                                         </a>
                                     <?php } ?>
