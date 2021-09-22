@@ -71,7 +71,7 @@
                                 <a href="<?= base_url('admin/apps-documentation'); ?>" class="btn btn-outline-secondary waves-effect">Cancel</a>
                             </div>
                             <div class="col-sm-9">
-                                <button type="submit" class="btn btn-success me-1 waves-effect waves-float waves-light">Save to draft</button>
+                                <button type="submit" class="btn btn-success me-1 waves-effect waves-float waves-light">Save</button>
                             </div>
                         </div>
                     </div>
