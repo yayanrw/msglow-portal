@@ -102,7 +102,7 @@
                 <div class="content-header-left col-md-12 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="float-start mb-0 text-black"><?= $title == 'Home' ? 'Welcome, Admin!' : $title; ?></h2>
+                            <h2 class="float-start mb-0 text-black"><?= $title == 'Home' ? 'Welcome, Admin!' : $title; ?><?= isset($subtitle) ? ' • ' . $subtitle : null; ?></h2>
                             <?= $this->renderSection('content_button'); ?>
                         </div>
                     </div>

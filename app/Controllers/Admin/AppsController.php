@@ -42,7 +42,8 @@ class AppsController extends BaseController
     {
         try {
             $data = [
-                'title'   => 'Apps Management • Input New Apps',
+                'title'   => 'Apps Management',
+                'subtitle'   => 'Input New Apps',
             ];
             return view('admin/apps/apps_input_view', $data);
         } catch (\Throwable $th) {
@@ -61,7 +62,8 @@ class AppsController extends BaseController
         try {
             $apps = $this->appsModel->find($apps_pid);
             $data = [
-                'title'   => 'Apps Management • Edit Apps',
+                'title'   => 'Apps Management',
+                'subtitle'   => 'Edit Apps',
                 'apps'    => $apps
             ];
             return view('admin/apps/apps_edit_view', $data);
