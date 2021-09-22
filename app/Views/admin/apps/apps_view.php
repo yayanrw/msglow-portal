@@ -54,13 +54,6 @@
         $("#datatable").DataTable({})
     })
 
-    <?php
-    $flashData = session()->getFlashdata('apps_notification');
-    if ($flashData) {
-        echo "toastr.success('" . $flashData . "', 'Notifications')";
-    }
-    ?>
-
     btnActive = (apps_pid) => {
         $.ajax({
             url: '<?= base_url('admin/apps/active'); ?>/' + apps_pid,
