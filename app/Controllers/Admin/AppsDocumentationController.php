@@ -14,7 +14,7 @@ class AppsDocumentationController extends BaseController
     protected $logErrorModel;
     protected $appsModel;
     protected $appsSubCategoryModel;
-    protected $appsDocumentation;
+    protected $appsDocumentationModel;
 
     public function __construct()
     {
@@ -22,7 +22,7 @@ class AppsDocumentationController extends BaseController
         $this->router = \Config\Services::router();
         $this->logErrorModel = new LogErrorModel();
         $this->appsModel = new AppsModel();
-        $this->appsDocumentation = new AppsDocumentationModel();
+        $this->appsDocumentationModel = new AppsDocumentationModel();
     }
 
     public function Index()
@@ -30,6 +30,9 @@ class AppsDocumentationController extends BaseController
         try {
             $data = [
                 'title'   => 'Apps Documentation',
+                'apps_documentation' => $this->appsDocumentationModel
+                    ->AppsDocumentationWithAppsSubCategory()
+                    ->getResult('array'),
                 'apps_sub_category'  => $this->appsSubCategoryModel->findAll()
             ];
             return view('admin/apps_documentation/apps_documentation_view', $data);
@@ -50,7 +53,7 @@ class AppsDocumentationController extends BaseController
             $data = [
                 'title' => 'Apps Documentation',
                 'subtitle' => 'Input New Document',
-                'apps_sub_category' => $this->appsModel->AppsWithSubCategory()->getResult('array')
+                'apps_sub_category' => $this->appsModel->AppsWithAppsSubCategory()->getResult('array')
             ];
             return view('admin/apps_documentation/apps_documentation_input_view', $data);
         } catch (\Throwable $th) {
