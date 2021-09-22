@@ -5,7 +5,7 @@ namespace App\Controllers\admin;
 use App\Controllers\BaseController;
 use App\Models\AppsSubCategoryModel;
 
-class AppsController extends BaseController
+class AppsDocumentationController extends BaseController
 {
     protected $appsSubCategoryModel;
 
@@ -20,6 +20,6 @@ class AppsController extends BaseController
             'title'   => 'Apps Documentation',
             'apps_sub_category'  => $this->appsSubCategoryModel->findAll()
         ];
-        return view('Admin/Apps/AppsDocumentationView', $data);
+        return view('admin/apps_documentation/apps_documentation_view', $data);
     }
 }

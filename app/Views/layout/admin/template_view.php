@@ -11,8 +11,8 @@
     <meta name="author" content="msglow">
     <title>Msglow Portal <?= isset($title) ? ' • ' . $title : null; ?></title>
 
-    <?= $this->include('Layout/CssView'); ?>
-    <?= $this->renderSection('CustomCss'); ?>
+    <?= $this->include('layout/css_view'); ?>
+    <?= $this->renderSection('custom_css'); ?>
 
 </head>
 <!-- END: Head-->
@@ -103,7 +103,7 @@
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
                             <h2 class="float-start mb-0 text-black"><?= $title == 'Home' ? 'Welcome, Admin!' : $title; ?></h2>
-                            <?= $this->renderSection('ContentButton'); ?>
+                            <?= $this->renderSection('content_button'); ?>
                         </div>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
             <div class="content-body">
 
                 <!-- Content -->
-                <?= $this->renderSection('Content'); ?>
+                <?= $this->renderSection('content'); ?>
                 <!-- End content -->
 
             </div>
@@ -127,8 +127,8 @@
     </footer>
     <!-- END: Footer-->
 
-    <?= $this->include('Layout/JsView'); ?>
-    <?= $this->renderSection('CustomJs'); ?>
+    <?= $this->include('layout/js_view'); ?>
+    <?= $this->renderSection('custom_js'); ?>
 
 </body>
 <!-- END: Body-->

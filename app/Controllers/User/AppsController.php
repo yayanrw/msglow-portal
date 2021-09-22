@@ -22,6 +22,6 @@ class AppsController extends BaseController
             'title'     => $apps['apps_name'] ?? "No Data",
             'apps'      => $apps
         ];
-        return view('User/Apps/AppsDetailView', $data);
+        return view('user/apps/apps_detail_view', $data);
     }
 }

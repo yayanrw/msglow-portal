@@ -20,7 +20,7 @@ class AppsController extends BaseController
             'title'   => 'Apps Management',
             'apps'  => $this->appsModel->findAll()
         ];
-        return view('Admin/Apps/AppsView', $data);
+        return view('admin/apps/apps_view', $data);
     }
 
     public function Input()
@@ -28,7 +28,7 @@ class AppsController extends BaseController
         $data = [
             'title'   => 'Apps Management • Input New Apps',
         ];
-        return view('Admin/Apps/AppsInputView', $data);
+        return view('admin/apps/apps_input_view', $data);
     }
 
     public function Edit($apps_pid = null)
@@ -39,7 +39,7 @@ class AppsController extends BaseController
             'title'   => 'Apps Management • Edit Apps',
             'apps'    => $apps
         ];
-        return view('Admin/Apps/AppsEditView', $data);
+        return view('admin/apps/apps_edit_view', $data);
     }
 
     public function Insert()

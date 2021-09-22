@@ -16,6 +16,6 @@ class SopDocumentsController extends BaseController
         $data = [
             'title'   => 'SOP Documents',
         ];
-        return view('Admin/SopDocuments/SopDocumentsView', $data);
+        return view('admin/sop_documents/sop_documents_view', $data);
     }
 }

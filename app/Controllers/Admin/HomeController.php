@@ -24,6 +24,6 @@ class HomeController extends BaseController
                 ->get()
                 ->getResult('array')
         ];
-        return view('Admin/Home/HomeView', $data);
+        return view('admin/home/home_view', $data);
     }
 }

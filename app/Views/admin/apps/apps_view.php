@@ -1,6 +1,6 @@
-<?= $this->extend('Layout/Admin/TemplateView'); ?>
+<?= $this->extend('layout/admin/template_view'); ?>
 
-<?= $this->section('CustomCss'); ?>
+<?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 
@@ -30,7 +30,7 @@
 </style>
 <?= $this->endSection(); ?>
 
-<?= $this->section('ContentButton'); ?>
+<?= $this->section('content_button'); ?>
 <div class="dt-action-buttons text-end">
     <div class="dt-buttons d-inline-flex">
         <a class="dt-button create-new btn btn-primary" href="<?= base_url('admin/apps/input'); ?>">
@@ -46,7 +46,7 @@
 </div>
 <?= $this->endSection(); ?>
 
-<?= $this->section('CustomJs'); ?>
+<?= $this->section('custom_js'); ?>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
 <script>
@@ -83,7 +83,7 @@
 </script>
 <?= $this->endSection(); ?>
 
-<?= $this->section('Content'); ?>
+<?= $this->section('content'); ?>
 <div class="row">
     <div class="col-12">
         <div class="card bg-primary">

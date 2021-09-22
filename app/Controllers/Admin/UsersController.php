@@ -16,6 +16,6 @@ class UsersController extends BaseController
         $data = [
             'title'   => 'Users',
         ];
-        return view('Admin/Users/UsersView', $data);
+        return view('admin/users/users_view', $data);
     }
 }

@@ -10,8 +10,8 @@
     <meta name="author" content="msglow">
     <title>Msglow Portal <?= isset($title) ? ' • ' . $title : null; ?></title>
 
-    <?= $this->include('Layout/CssView'); ?>
-    <?= $this->renderSection('CustomCss'); ?>
+    <?= $this->include('layout/css_view'); ?>
+    <?= $this->renderSection('custom_css'); ?>
 
 </head>
 <!-- END: Head-->
@@ -30,7 +30,7 @@
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
                 <li class="nav-item">
-                    <a class="text-black" href="<?= base_url('User/SopDocuments'); ?>">SOP Documents</a>
+                    <a class="text-black" href="<?= base_url('user/sop-documents'); ?>">SOP Documents</a>
                 </li>
                 <li class="nav-item dropdown dropdown-user ps-3"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="avatar">
@@ -58,7 +58,7 @@
             <div class="content-body">
 
                 <!-- Content -->
-                <?= $this->renderSection('Content'); ?>
+                <?= $this->renderSection('content'); ?>
                 <!-- End content -->
 
             </div>
@@ -75,8 +75,8 @@
     </footer>
     <!-- END: Footer-->
 
-    <?= $this->include('Layout/JsView'); ?>
-    <?= $this->renderSection('customJs'); ?>
+    <?= $this->include('layout/js_view'); ?>
+    <?= $this->renderSection('custom_js'); ?>
 
 </body>
 <!-- END: Body-->

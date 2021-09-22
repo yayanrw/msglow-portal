@@ -8,6 +8,6 @@ class SopDocumentsController extends BaseController
 {
     public function index()
     {
-        return view('User/SopDocuments/SopDocumentsView');
+        return view('user/sop_documents/sop_documents_view');
     }
 }

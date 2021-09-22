@@ -1,11 +1,11 @@
-<?= $this->extend('Layout/User/TemplateView'); ?>
+<?= $this->extend('layout/user/template_view'); ?>
 
-<?= $this->section('CustomCss'); ?>
+<?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
-<?= $this->include('User/Home/HomeCssView'); ?>
+<?= $this->include('user/home/home_css_view'); ?>
 <?= $this->endSection(); ?>
 
-<?= $this->section('Content'); ?>
+<?= $this->section('content'); ?>
 
 <!-- Knowledge base Jumbotron -->
 <section id="knowledge-base-search">

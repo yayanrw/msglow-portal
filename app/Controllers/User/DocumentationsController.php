@@ -13,6 +13,6 @@ class DocumentationsController extends BaseController
 
     public function detail($pid = null)
     {
-        return view('User/Documentations/DocumentationsView');
+        return view('user/documentations/documentations_view');
     }
 }

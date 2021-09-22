@@ -23,6 +23,6 @@ class HomeController extends BaseController
                 ->get()
                 ->getResult('array')
         ];
-        return view('User/Home/HomeView', $data);
+        return view('user/home/home_view', $data);
     }
 }
