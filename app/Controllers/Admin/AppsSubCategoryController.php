@@ -10,16 +10,16 @@ use App\Models\LogErrorModel;
 class AppsSubCategoryController extends BaseController
 {
     protected $router;
+    protected $logErrorModel;
     protected $appsSubCategoryModel;
     protected $appsModel;
-    protected $logErrorModel;
 
     public function __construct()
     {
         $this->router = \Config\Services::router();
+        $this->logErrorModel = new LogErrorModel();
         $this->appsSubCategoryModel = new AppsSubCategoryModel();
         $this->appsModel = new AppsModel();
-        $this->logErrorModel = new LogErrorModel();
     }
 
     public function Input()
