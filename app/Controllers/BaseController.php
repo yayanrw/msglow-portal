@@ -48,5 +48,8 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->savedSuccessMsg = 'Saved successfully';
+        $this->updatedSuccessMsg = 'Updated successfully';
+        $this->errorProcessingMsg = 'An error occured while processing your request';
     }
 }
