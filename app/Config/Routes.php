@@ -59,6 +59,9 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     // apps-sub-category
     $routes->add('apps-sub-category/input', 'Admin\AppsSubCategoryController::Input');
     $routes->post('apps-sub-category/insert', 'Admin\AppsSubCategoryController::Insert');
+    $routes->add('apps-sub-category/edit/(:any)', 'Admin\AppsSubCategoryController::Edit/$1');
+    $routes->post('apps-sub-category/update', 'Admin\AppsSubCategoryController::Update');
+    $routes->add('apps-sub-category/active/(:any)', 'Admin\AppsSubCategoryController::Active/$1');
 
     // sop-documents
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
