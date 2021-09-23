@@ -30,10 +30,8 @@ class AppsDocumentationController extends BaseController
         try {
             $data = [
                 'title'   => 'Apps Documentation',
-                'apps_documentation' => $this->appsDocumentationModel
-                    ->AppsDocumentationWithAppsSubCategory()
-                    ->getResult('array'),
-                'apps_sub_category'  => $this->appsSubCategoryModel->findAll()
+                'apps_documentation' => $this->appsDocumentationModel->AppsDocumentationWithAppsSubCategory(),
+                'apps_sub_category'  => $this->appsDocumentationModel->AppsDocumentationWithAppsSubCategoryGrouped()
             ];
             return view('admin/apps_documentation/apps_documentation_view', $data);
         } catch (\Throwable $th) {
@@ -91,7 +89,7 @@ class AppsDocumentationController extends BaseController
     public function Insert()
     {
         try {
-            $this->appsDocumentation->insert([
+            $this->appsDocumentationModel->insert([
                 'apps_sub_category_pid' =>  $this->request->getVar('apps_sub_category_pid'),
                 'apps_document_title' =>  $this->request->getVar('apps_document_title'),
                 'apps_document_file' =>  $this->request->getVar('apps_document_file'),
@@ -140,12 +138,15 @@ class AppsDocumentationController extends BaseController
     public function Active($apps_documentation_pid = null)
     {
         try {
-            $apps_documentation = $this->appsDocumentationModel->find($apps_documentation_pid);
+            $apps_documentation = $this->appsDocumentationModel
+                ->AppsDocumentationWithAppsSubCategoryDetail($apps_documentation_pid);
             $this->appsDocumentationModel->update($apps_documentation_pid, [
-                'is_active'   => !$apps_documentation['is_active']
+                'is_active'   => !$apps_documentation->is_active,
+                'updated_at'  => date('Y-m-d H:i:s'),
+                'updated_by'  => session()->get('users_email')
             ]);
-            $apps_documentation_name = $apps_documentation['apps_name'] . ' ' . $apps_documentation['apps_subname'] . ' - ' . $apps_documentation['apps_document_title'];
-            $message = $apps_documentation['is_active'] ? $apps_documentation_name . ' successfully disabled' : $apps_documentation_name . ' successfully enabled';
+            $apps_documentation_name = $apps_documentation->apps_document_title  . ' - ' . $apps_documentation->apps_name . ' ' . $apps_documentation->apps_subname;
+            $message = $apps_documentation->is_active ? $apps_documentation_name . ' successfully disabled' : $apps_documentation_name . ' successfully enabled';
             return redirect()->back()->with('successMsg', $message);
         } catch (\Throwable $th) {
             $this->logErrorModel->InsertLog(
