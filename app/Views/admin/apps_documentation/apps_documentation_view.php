@@ -5,17 +5,17 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
 <style>
     .dataTables_length {
-        color: #fff;
+        color: #000;
         padding-left: 20px;
     }
 
     .dataTables_filter {
-        color: #fff;
+        color: #000;
         padding-right: 20px;
     }
 
     div.dataTables_wrapper .dataTables_info {
-        color: #fff;
+        color: #000;
         padding-left: 20px;
         padding-top: 20apx;
         padding-bottom: 20px;
@@ -69,19 +69,19 @@
 <?= $this->section('content'); ?>
 <div class="row">
     <div class="col-12">
-        <div class="card bg-primary">
+        <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-white fw-bolder">Documentation List</h4>
+                <h4 class="card-title text-primary fw-bolder">Documentation List</h4>
             </div>
             <div class="table-responsive">
                 <table id="datatable-documentation-list" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Title</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Category</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Sub-Category</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Actions</th>
+                            <th class="text-white bg-primary">No</th>
+                            <th class="text-white bg-primary">Title</th>
+                            <th class="text-white bg-primary">Category</th>
+                            <th class="text-white bg-primary">Sub-Category</th>
+                            <th class="text-white bg-primary">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -116,19 +116,19 @@
 
 <div class="row">
     <div class="col-12">
-        <div class="card bg-primary">
+        <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-white fw-bolder">Category List</h4>
+                <h4 class="card-title text-primary fw-bolder">Category List</h4>
             </div>
             <div class="table-responsive">
                 <table id="datatable-category-list" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Title</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Document Assigned</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Created</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Actions</th>
+                            <th class="text-white bg-primary">No</th>
+                            <th class="text-white bg-primary">Title</th>
+                            <th class="text-white bg-primary">Document Assigned</th>
+                            <th class="text-white bg-primary">Date Created</th>
+                            <th class="text-white bg-primary">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

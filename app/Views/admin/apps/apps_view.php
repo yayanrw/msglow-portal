@@ -6,17 +6,17 @@
 
 <style>
     .dataTables_length {
-        color: #fff;
+        color: #000;
         padding-left: 20px;
     }
 
     .dataTables_filter {
-        color: #fff;
+        color: #000;
         padding-right: 20px;
     }
 
     div.dataTables_wrapper .dataTables_info {
-        color: #fff;
+        color: #000;
         padding-left: 20px;
         padding-top: 20apx;
         padding-bottom: 20px;
@@ -79,19 +79,19 @@
 <?= $this->section('content'); ?>
 <div class="row">
     <div class="col-12">
-        <div class="card bg-primary">
+        <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-white fw-bolder">List of all apps</h4>
+                <h4 class="card-title text-primary fw-bolder">List of all apps</h4>
             </div>
             <div class="table-responsive">
                 <table id="datatable" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Name</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Release</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Link to Site</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Actions</th>
+                            <th class="text-white bg-primary">No</th>
+                            <th class="text-white bg-primary">Name</th>
+                            <th class="text-white bg-primary">Date Release</th>
+                            <th class="text-white bg-primary">Link to Site</th>
+                            <th class="text-white bg-primary">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
