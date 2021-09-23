@@ -67,12 +67,11 @@
                                 <td class="bg-white">
 
                                     <?php
-                                    $bg_color = array('bg-primary', 'bg-secondary', 'bg-success', 'bg-danger', 'bg-warning', 'bg-info', 'bg-dark');
                                     $apps_name = explode(',', $key['apps_name']);
                                     $apps_subname = explode(',', $key['apps_subname']);
 
                                     for ($a = 0; $a < count($apps_name); $a++) { ?>
-                                        <span class="badge <?= $bg_color[array_rand($bg_color)] ?>"><?= $apps_name[$a] . ' ' . $apps_subname[$a]; ?></span>
+                                        <span class="badge badge-light-primary"><?= $apps_name[$a] . ' ' . $apps_subname[$a]; ?></span>
                                     <?php } ?>
 
                                 </td>
