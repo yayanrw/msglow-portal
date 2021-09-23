@@ -82,7 +82,7 @@
                         <span class="menu-title text-truncate" data-i18n="Chat">SOP Documents</span>
                     </a>
                 </li>
-                <li class="<?= $title == 'Users' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'Manage Users' ? 'active' : null; ?> nav-item">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/users'); ?>">
                         <i data-feather='user'></i>
                         <span class="menu-title text-truncate" data-i18n="Chat">Users</span>

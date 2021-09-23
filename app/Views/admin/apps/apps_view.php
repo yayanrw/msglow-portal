@@ -81,7 +81,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title text-primary fw-bolder">List of all apps</h4>
+                <h4 class="card-title text-primary fw-bolder">List of All Apps</h4>
             </div>
             <div class="table-responsive">
                 <table id="datatable" class="table table-bordered table-striped">
