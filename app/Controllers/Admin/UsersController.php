@@ -44,7 +44,7 @@ class UsersController extends BaseController
     public function Edit($users_pid = null)
     {
         try {
-            $users = $this->usersModel->UsersWithAppsRow($users_pid);
+            $users = $this->usersModel->UsersWithAppsDetail($users_pid);
             $data = [
                 'title'     => 'Manage Users',
                 'subtitle'  => 'Edit',

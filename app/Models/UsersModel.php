@@ -20,7 +20,7 @@ class UsersModel extends Model
             ->getResult('array');
     }
 
-    public function UsersWithAppsRow($users_pid = null)
+    public function UsersWithAppsDetail($users_pid = null)
     {
         return $this->select("m_users.*, GROUP_CONCAT(c.apps_name SEPARATOR ', ') apps_name, GROUP_CONCAT(c.apps_subname SEPARATOR ', ') apps_subname")
             ->join('t_access_mapping b', 'b.users_email = m_users.users_email')
