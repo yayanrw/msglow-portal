@@ -65,6 +65,8 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     // users
     $routes->add('users', 'Admin\UsersController::Index');
+    $routes->add('users/edit/(:any)', 'Admin\UsersController::Edit/$1');
+    $routes->add('users/update', 'Admin\UsersController::Update');
 });
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->add('/', 'User\HomeController::Index');
