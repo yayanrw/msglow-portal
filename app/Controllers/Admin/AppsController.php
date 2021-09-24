@@ -152,7 +152,9 @@ class AppsController extends BaseController
         try {
             $apps = $this->appsModel->find($apps_pid);
             $this->appsModel->update($apps_pid, [
-                'is_active'   => !$apps['is_active']
+                'is_active'   => !$apps['is_active'],
+                'updated_at'  => date('Y-m-d H:i:s'),
+                'updated_by'  => session()->get('users_email')
             ]);
             $apps_name = $apps['apps_name'] . ' - ' . $apps['apps_subname'];
             $message = $apps['is_active'] ? $apps_name . ' successfully disabled' : $apps_name . ' successfully enabled';
