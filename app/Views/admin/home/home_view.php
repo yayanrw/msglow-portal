@@ -84,7 +84,7 @@
     <div class="col-lg-8 col-sm-12">
         <div class="card bg-primary">
             <div class="card-header">
-                <h4 class="card-title text-white fw-bolder">Latest Categories</h4>
+                <h4 class="card-title text-white fw-bolder">Latest Documents</h4>
             </div>
             <div class="table-responsive">
                 <table class="table table-bordered">

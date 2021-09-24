@@ -36,7 +36,7 @@
                                     <label class="col-form-label text-black" for="apps_sub_category_title">Sub-Category Title</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_sub_category_title" class="form-control" name="apps_sub_category_title" placeholder="App title" required>
+                                    <input type="text" id="apps_sub_category_title" class="form-control text-black" name="apps_sub_category_title" placeholder="App title" required>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                                     <label class="col-form-label text-black" for="apps_pid">Assign to</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <select class="select2 form-select" id="apps_pid" name="apps_pid">
+                                    <select class="select2 form-select text-black" id="apps_pid" name="apps_pid">
                                         <option value="">- Choose apps -</option>
                                         <?php foreach ($apps as $key) { ?>
                                             <option value="<?= $key['apps_pid']; ?>"><?= $key['apps_name']; ?></option>
