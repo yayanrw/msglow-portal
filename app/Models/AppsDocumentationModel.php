@@ -32,7 +32,7 @@ class AppsDocumentationModel extends Model
     public function AppsDocumentationWithAppsSubCategoryGrouped()
     {
         return $this->select('t_apps_document.*, m_apps.apps_name, m_apps.apps_subname, t_apps_sub_category.apps_sub_category_title, count(t_apps_document.apps_document_pid) count_documents_assigned, t_apps_sub_category.apps_sub_category_pid, t_apps_sub_category.is_active apps_sub_category_is_active')
-            ->join('t_apps_sub_category', 't_apps_sub_category.apps_sub_category_pid = t_apps_document.apps_sub_category_pid')
+            ->join('t_apps_sub_category', 't_apps_sub_category.apps_sub_category_pid = t_apps_document.apps_sub_category_pid', 'right')
             ->join('m_apps', 'm_apps.apps_pid = t_apps_sub_category.apps_pid')
             ->groupBy('t_apps_sub_category.apps_sub_category_pid')
             ->get()
