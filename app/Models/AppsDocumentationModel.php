@@ -19,6 +19,16 @@ class AppsDocumentationModel extends Model
             ->getResult('array');
     }
 
+    public function AppsDocumentationWithAppsSubCategoryTop5Latest()
+    {
+        return $this->select('t_apps_document.*, m_apps.apps_name, m_apps.apps_subname, t_apps_sub_category.apps_sub_category_title')
+            ->join('t_apps_sub_category', 't_apps_sub_category.apps_sub_category_pid = t_apps_document.apps_sub_category_pid')
+            ->join('m_apps', 'm_apps.apps_pid = t_apps_sub_category.apps_pid')
+            ->orderBy('t_apps_document.created_at desc')
+            ->get()
+            ->getResult('array');
+    }
+
     public function AppsDocumentationWithAppsSubCategoryDetail($apps_document_pid = null)
     {
         return $this->select('t_apps_document.*, m_apps.apps_name, m_apps.apps_subname, t_apps_sub_category.apps_sub_category_title')
