@@ -25,12 +25,12 @@ class SopDocumentsController extends BaseController
     }
 
     public function Index()
-    {
+    {   
         try {
             $data = [
                 'title'   => 'SOP Documents',
                 'sop_documents' => $this->sopDocumentsModel->SopDocumentsWithSopCategory(),
-                'sop_category'  => $this->sopCategoryModel->findAll()
+                'sop_category'  => $this->sopDocumentsModel->SopDocumentsWithSopCategoryGrouped()
             ];
             return view('admin/sop_documents/sop_documents_view', $data);
         } catch (\Throwable $th) {
