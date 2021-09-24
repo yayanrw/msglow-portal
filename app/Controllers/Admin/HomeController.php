@@ -3,20 +3,26 @@
 namespace App\Controllers\admin;
 
 use App\Controllers\BaseController;
+use App\Models\AppsDocumentationModel;
 use App\Models\AppsModel;
+use App\Models\AppsSubCategoryModel;
 use App\Models\LogErrorModel;
 
 class HomeController extends BaseController
 {
     protected $router;
-    protected $appsModel;
     protected $logErrorModel;
+    protected $appsModel;
+    protected $appsDocumentationModel;
+    protected $appsSubCategoryModel;
 
     public function __construct()
     {
         $this->router = \Config\Services::router();
-        $this->appsModel = new AppsModel();
         $this->logErrorModel = new LogErrorModel();
+        $this->appsModel = new AppsModel();
+        $this->appsDocumentationModel = new AppsDocumentationModel();
+        $this->appsSubCategoryModel = new AppsSubCategoryModel();
     }
 
     public function Index()
@@ -28,7 +34,9 @@ class HomeController extends BaseController
                     ->orderBy('apps_date_release desc')
                     ->limit(5)
                     ->get()
-                    ->getResult('array')
+                    ->getResult('array'),
+                'latest_categories' => $this->appsSubCategoryModel->AppsSubCategoryWithAppsTop5Latest(),
+                'latest_documents' => $this->appsDocumentationModel->AppsDocumentationWithAppsSubCategoryTop5Latest(),
             ];
             return view('admin/home/home_view', $data);
         } catch (\Throwable $th) {

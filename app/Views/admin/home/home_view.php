@@ -13,17 +13,20 @@
                 <h4 class="card-title text-white fw-bolder">Latest Apps</h4>
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Name</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Publish</th>
+                            <th class="text-black" style="background-color: #F0EFFA;">Date Released</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $no = 1;
                         foreach ($latest_apps as $a) { ?>
                             <tr>
+                                <td class="bg-white"><?= $no++; ?></td>
                                 <td class="bg-white"><?= $a['apps_name']; ?> • <?= $a['apps_subname']; ?></td>
                                 <td class="bg-white"><?= $a['apps_date_release']; ?></td>
                             </tr>
@@ -39,40 +42,26 @@
                 <h4 class="card-title text-white fw-bolder">Latest Categories</h4>
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Name</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Category</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Publish</th>
+                            <th class="text-black" style="background-color: #F0EFFA;">Date Released</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="bg-white">Sub-Category #2</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #1</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #4</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #5</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($latest_categories as $key) { ?>
+                            <tr>
+                                <td class="bg-white"><?= $no++; ?></td>
+                                <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
+                                <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
+                                <td class="bg-white"><?= date('Y-m-d', strtotime($key['created_at'])) ?></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -87,46 +76,28 @@
                 <h4 class="card-title text-white fw-bolder">Latest Documents</h4>
             </div>
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-striped">
                     <thead class="bg-primary">
                         <tr>
+                            <th class="text-black" style="background-color: #F0EFFA;">No</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Name</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Category</th>
                             <th class="text-black" style="background-color: #F0EFFA;">Sub-Category</th>
-                            <th class="text-black" style="background-color: #F0EFFA;">Date Publish</th>
+                            <th class="text-black" style="background-color: #F0EFFA;">Date Created</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="bg-white">Sub-Category #2</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #1</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #4</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
-                        <tr>
-                            <td class="bg-white">Sub-Category #5</td>
-                            <td class="bg-white">Category #1</td>
-                            <td class="bg-white">Sub-Category #3</td>
-                            <td class="bg-white">20 Agustus 2021</td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($latest_documents as $key) { ?>
+                            <tr>
+                                <td class="bg-white"><?= $no++; ?></td>
+                                <td class="bg-white"><?= $key['apps_document_title']; ?></td>
+                                <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
+                                <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
+                                <td class="bg-white"><?= date('Y-m-d', strtotime($key['created_at'])) ?></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
