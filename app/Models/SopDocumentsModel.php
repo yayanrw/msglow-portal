@@ -15,7 +15,7 @@ class SopDocumentsModel extends Model
         return $this->select('t_sop_documents.*, m_sop_category.sop_category_title')
             ->join('m_sop_category', 'm_sop_category.sop_category_pid = t_sop_documents.sop_category_pid')
             ->get()
-            ->getResult();
+            ->getResultArray();
     }
 
     public function SopDocumentsWithSopCategoryDetail($sop_documents_pid = null)
