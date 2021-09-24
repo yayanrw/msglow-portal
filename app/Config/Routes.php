@@ -65,6 +65,18 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
 
     // sop-documents
     $routes->add('sop-documents', 'Admin\SopDocumentsController::Index');
+    $routes->add('sop-documents/input', 'Admin\SopDocumentsController::Input');
+    $routes->post('sop-documents/insert', 'Admin\SopDocumentsController::Insert');
+    $routes->add('sop-documents/edit/(:any)', 'Admin\SopDocumentsController::Edit/$1');
+    $routes->post('sop-documents/update', 'Admin\SopDocumentsController::Update');
+    $routes->add('sop-documents/active/(:any)', 'Admin\SopDocumentsController::Active/$1');
+
+    // sop-category
+    $routes->add('sop-category/input', 'Admin\SopCategoryController::Input');
+    $routes->post('sop-category/insert', 'Admin\SopCategoryController::Insert');
+    $routes->add('sop-category/edit/(:any)', 'Admin\SopCategoryController::Edit/$1');
+    $routes->post('sop-category/update', 'Admin\SopCategoryController::Update');
+    $routes->add('sop-category/active/(:any)', 'Admin\SopCategoryController::Active/$1');
 
     // users
     $routes->add('users', 'Admin\UsersController::Index');
