@@ -108,12 +108,12 @@ class SopCategoryController extends BaseController
         try {
             $sop_category = $this->sopCategoryModel->find($sop_category_pid);
             $this->sopCategoryModel->update($sop_category_pid, [
-                'is_active'   => !$sop_category->is_active,
+                'is_active'   => !$sop_category['is_active'],
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);
-            $sop_category_name = $sop_category->sop_category_title;
-            $message = $sop_category->is_active ? $sop_category_name . ' successfully disabled' : $sop_category_name . ' successfully enabled';
+            $sop_category_name = $sop_category['sop_category_title'];
+            $message = $sop_category['is_active'] ? $sop_category_name . ' successfully disabled' : $sop_category_name . ' successfully enabled';
             return redirect()->back()->with('successMsg', $message);
         } catch (\Throwable $th) {
             $this->logErrorModel->InsertLog(
