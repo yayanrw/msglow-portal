@@ -142,15 +142,15 @@
                             <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
                             <td class="bg-white"><?= $key['count_documents_assigned']; ?> documents</td>
                             <td class="bg-white">
-                                <a href="<?= base_url('admin/apps-sub-category/edit/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
+                                <a href="<?= base_url('admin/apps-sub-category/edit/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
                                     <i data-feather='edit-3'></i>
                                 </a>
-                                <?php if ($key['is_active']) { ?>
-                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable document">
+                                <?php if ($key['apps_sub_category_is_active']) { ?>
+                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable document">
                                         <i data-feather='lock'></i>
                                     </a>
                                 <?php } else { ?>
-                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable document">
+                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable document">
                                         <i data-feather='upload-cloud'></i>
                                     </a>
                                 <?php } ?>
