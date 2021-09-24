@@ -14,9 +14,9 @@ class AppsController extends BaseController
 
     public function __construct()
     {
-        $this->appsModel = new AppsModel();
-        $this->logErrorModel = new LogErrorModel();
         $this->router = \Config\Services::router();
+        $this->logErrorModel = new LogErrorModel();
+        $this->appsModel = new AppsModel();
     }
 
     public function Index()

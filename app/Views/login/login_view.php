@@ -145,10 +145,13 @@
         }
 
         <?php
-        $session = session();
-        $flashData = $session->getFlashdata('login_notification');
-        if ($flashData) {
-            echo "toastr.error('" . $flashData . "', 'Notifications')";
+        $successflashData = session()->getFlashdata('successMsg');
+        if ($successflashData) {
+            echo "toastr.success('" . $successflashData . "', 'Notifications')";
+        }
+        $errorflashData = session()->getFlashdata('errorMsg');
+        if ($errorflashData) {
+            echo "toastr.error('" . $errorflashData . "', 'Notifications')";
         }
         ?>
     </script>
