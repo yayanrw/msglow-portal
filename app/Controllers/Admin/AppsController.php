@@ -11,12 +11,14 @@ class AppsController extends BaseController
     protected $router;
     protected $appsModel;
     protected $logErrorModel;
+    protected $validation;
 
     public function __construct()
     {
         $this->router = \Config\Services::router();
         $this->logErrorModel = new LogErrorModel();
         $this->appsModel = new AppsModel();
+        $this->validation =  \Config\Services::validation();
     }
 
     public function Index()
@@ -44,6 +46,7 @@ class AppsController extends BaseController
             $data = [
                 'title'   => 'Apps Management',
                 'subtitle'   => 'Input New Apps',
+                'validation' => $this->validation,
             ];
             return view('admin/apps/apps_input_view', $data);
         } catch (\Throwable $th) {
@@ -81,11 +84,22 @@ class AppsController extends BaseController
     public function Insert()
     {
         try {
-            // $appsIcon = $this->request->getFile('apps_icon');
-            // $appsBannerImg = $this->request->getFile('apps_banner_img');
+            if (!$this->validate([
+                'apps_icon' => [
+                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                ],
+                'apps_banner_img' => [
+                    'rules' => 'max_size[apps_icon,200]|mime_in[apps_icon,image/png,image/jpg,image/jpeg]|ext_in[apps_icon,png,jpg,jpeg]|is_image[apps_icon]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
 
-            // $appsIconName = $appsIcon->getRandomName();
-            // $appsBannerImgName = $appsBannerImg->getRandomName();
+            $appsIcon = $this->request->getFile('apps_icon');
+            $appsBannerImg = $this->request->getFile('apps_banner_img');
+
+            $appsIconName = $appsIcon->getRandomName();
+            $appsBannerImgName = $appsBannerImg->getRandomName();
 
             $this->appsModel->insert([
                 'apps_name'         => $this->request->getVar('apps_name'),
@@ -94,14 +108,14 @@ class AppsController extends BaseController
                 'apps_owner'        => $this->request->getVar('apps_owner'),
                 'apps_url'          => $this->request->getVar('apps_url'),
                 'apps_date_release' => $this->request->getVar('apps_date_release'),
-                'apps_icon'         => null,
-                'apps_banner_img'   => null,
+                'apps_icon'         => $appsIconName,
+                'apps_banner_img'   => $appsBannerImgName,
                 'apps_key_session'  => $this->request->getVar('apps_key_session'),
                 'created_by'        => session()->get('users_email')
             ]);
 
-            // $appsIcon->move('assets/uploads/icons/', $appsIconName);
-            // $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+            $appsIcon->move('assets/uploads/icons/', $appsIconName);
+            $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
             return redirect()->to('admin/apps-management');
