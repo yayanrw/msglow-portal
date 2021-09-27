@@ -79,13 +79,12 @@ class AppsSubCategoryController extends BaseController
             }
 
             $appsSubCategoryBannerImg = $this->request->getFile('apps_sub_category_banner_img');
-
             $appsSubCategoryBannerImgName = $appsSubCategoryBannerImg->getError() == 4 ? null : $appsSubCategoryBannerImg->getName();
 
             $this->appsSubCategoryModel->insert([
                 'apps_pid' => $this->request->getVar('apps_pid'),
                 'apps_sub_category_title' => $this->request->getVar('apps_sub_category_title'),
-                'apps_sub_banner_img' => $appsSubCategoryBannerImgName,
+                'apps_sub_category_banner_img' => $appsSubCategoryBannerImgName,
                 'created_by' => session()->get('users_email')
             ]);
 
