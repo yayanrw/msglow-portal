@@ -33,6 +33,9 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php if (count($latest_apps) < 1) { ?>
+                    <h5 class="text-center bg-white p-1">No data</h5>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -64,6 +67,9 @@
                         <?php } ?>
                     </tbody>
                 </table>
+                <?php if (count($latest_categories) < 1) { ?>
+                    <h5 class="text-center bg-white p-1">No data</h5>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -98,8 +104,12 @@
                                 <td class="bg-white"><?= date('Y-m-d', strtotime($key['created_at'])) ?></td>
                             </tr>
                         <?php } ?>
+
                     </tbody>
                 </table>
+                <?php if (count($latest_documents) < 1) { ?>
+                    <h5 class="text-center bg-white p-1">No data</h5>
+                <?php } ?>
             </div>
         </div>
     </div>
