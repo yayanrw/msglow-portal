@@ -13,8 +13,8 @@ class UsersModel extends Model
     public function UsersWithApps()
     {
         return $this->select("m_users.*, GROUP_CONCAT(c.apps_name SEPARATOR ', ') apps_name, GROUP_CONCAT(c.apps_subname SEPARATOR ', ') apps_subname")
-            ->join('t_access_mapping b', 'b.users_email = m_users.users_email')
-            ->join('m_apps c', 'c.apps_pid = b.apps_pid')
+            ->join('t_access_mapping b', 'b.users_email = m_users.users_email', 'left')
+            ->join('m_apps c', 'c.apps_pid = b.apps_pid', 'left')
             ->groupBy('m_users.users_email')
             ->get()
             ->getResult('array');
@@ -23,8 +23,8 @@ class UsersModel extends Model
     public function UsersWithAppsDetail($users_pid = null)
     {
         return $this->select("m_users.*, GROUP_CONCAT(c.apps_name SEPARATOR ', ') apps_name, GROUP_CONCAT(c.apps_subname SEPARATOR ', ') apps_subname")
-            ->join('t_access_mapping b', 'b.users_email = m_users.users_email')
-            ->join('m_apps c', 'c.apps_pid = b.apps_pid')
+            ->join('t_access_mapping b', 'b.users_email = m_users.users_email', 'left')
+            ->join('m_apps c', 'c.apps_pid = b.apps_pid', 'left')
             ->groupBy('m_users.users_email')
             ->where('m_users.users_pid', $users_pid)
             ->get()
