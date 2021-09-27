@@ -67,6 +67,7 @@ class AppsController extends BaseController
             $data = [
                 'title'   => 'Apps Management',
                 'subtitle'   => 'Edit Apps',
+                'validation' => $this->validation,
                 'apps'    => $apps
             ];
             return view('admin/apps/apps_edit_view', $data);
@@ -89,7 +90,7 @@ class AppsController extends BaseController
                     'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
                 ],
                 'apps_banner_img' => [
-                    'rules' => 'max_size[apps_icon,200]|mime_in[apps_icon,image/png,image/jpg,image/jpeg]|ext_in[apps_icon,png,jpg,jpeg]|is_image[apps_icon]',
+                    'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
                 ]
             ])) {
                 return redirect()->back()->withInput();
@@ -98,8 +99,8 @@ class AppsController extends BaseController
             $appsIcon = $this->request->getFile('apps_icon');
             $appsBannerImg = $this->request->getFile('apps_banner_img');
 
-            $appsIconName = $appsIcon->getRandomName();
-            $appsBannerImgName = $appsBannerImg->getRandomName();
+            $appsIconName = $appsIcon->getError() == 4 ? null : $appsIcon->getName();
+            $appsBannerImgName = $appsBannerImg->getError() == 4 ? null : $appsBannerImg->getName();
 
             $this->appsModel->insert([
                 'apps_name'         => $this->request->getVar('apps_name'),
@@ -114,8 +115,13 @@ class AppsController extends BaseController
                 'created_by'        => session()->get('users_email')
             ]);
 
-            $appsIcon->move('assets/uploads/icons/', $appsIconName);
-            $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+            if (!empty($appsIconName)) {
+                $appsIcon->move('assets/uploads/icons/', $appsIconName);
+            }
+
+            if (!empty($appsBannerImgName)) {
+                $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+            }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
             return redirect()->to('admin/apps-management');
@@ -134,6 +140,25 @@ class AppsController extends BaseController
     public function Update()
     {
         try {
+            if (!$this->validate([
+                'apps_icon' => [
+                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                ],
+                'apps_banner_img' => [
+                    'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
+                ]
+            ])) {
+                if (is_null($this->request->getFiles())) {
+                    return redirect()->back()->withInput();
+                }
+            }
+
+            $appsIcon = $this->request->getFile('apps_icon');
+            $appsBannerImg = $this->request->getFile('apps_banner_img');
+
+            $appsIconName = $appsIcon->getRandomName();
+            $appsBannerImgName = $appsBannerImg->getRandomName();
+
             $this->appsModel->update($this->request->getVar('apps_pid'), [
                 'apps_name'         => $this->request->getVar('apps_name'),
                 'apps_subname'      => $this->request->getVar('apps_subname'),
