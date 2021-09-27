@@ -11,12 +11,14 @@ class SopCategoryController extends BaseController
     protected $router;
     protected $logErrorModel;
     protected $appsSubCategoryModel;
+    protected $validation;
 
     public function __construct()
     {
         $this->router = \Config\Services::router();
         $this->logErrorModel = new LogErrorModel();
         $this->sopCategoryModel = new SopCategoryModel();
+        $this->validation =  \Config\Services::validation();
     }
 
     public function Input()
@@ -25,6 +27,7 @@ class SopCategoryController extends BaseController
             $data = [
                 'title' => 'SOP Documents',
                 'subtitle' => 'Input New Sub-Category',
+                'validation' => $this->validation
             ];
             return view('admin/sop_category/sop_category_input_view', $data);
         } catch (\Throwable $th) {
@@ -44,6 +47,7 @@ class SopCategoryController extends BaseController
             $data = [
                 'title' => 'SOP Documents',
                 'subtitle' => 'Edit Sub-Category',
+                'validation' => $this->validation,
                 'sop_category' => $this->sopCategoryModel->find($sop_category_pid),
             ];
             return view('admin/sop_category/sop_category_edit_view', $data);
@@ -61,11 +65,28 @@ class SopCategoryController extends BaseController
     public function Insert()
     {
         try {
+            if (!$this->validate([
+                'sop_category_banner_img' => [
+                    'rules' => 'max_size[sop_category_banner_img,200]|mime_in[sop_category_banner_img,image/png,image/jpg,image/jpeg]|ext_in[sop_category_banner_img,png,jpg,jpeg]|is_image[sop_category_banner_img]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
+
+            $sopCategoryBannerImg = $this->request->getFile('sop_category_banner_img');
+
+            $sopCategoryBannerImgName = $sopCategoryBannerImg->getError() == 4 ? null : $sopCategoryBannerImg->getName();
+
             $this->sopCategoryModel->insert([
                 'sop_category_title' => $this->request->getVar('sop_category_title'),
-                'sop_cateogory_banner_img' => $this->request->getVar('sop_cateogory_banner_img'),
+                'sop_category_banner_img' => $sopCategoryBannerImgName,
                 'created_by' => session()->get('users_email')
             ]);
+
+            if (!empty($sopCategoryBannerImgName)) {
+                $sopCategoryBannerImg->move('assets/uploads/banners/', $sopCategoryBannerImgName);
+            }
+
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
             return redirect()->to('admin/sop-documents');
         } catch (\Throwable $th) {
