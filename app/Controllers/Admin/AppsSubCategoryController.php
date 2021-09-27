@@ -13,6 +13,7 @@ class AppsSubCategoryController extends BaseController
     protected $logErrorModel;
     protected $appsSubCategoryModel;
     protected $appsModel;
+    protected $validation;
 
     public function __construct()
     {
@@ -20,6 +21,7 @@ class AppsSubCategoryController extends BaseController
         $this->logErrorModel = new LogErrorModel();
         $this->appsSubCategoryModel = new AppsSubCategoryModel();
         $this->appsModel = new AppsModel();
+        $this->validation =  \Config\Services::validation();
     }
 
     public function Input()
@@ -28,6 +30,7 @@ class AppsSubCategoryController extends BaseController
             $data = [
                 'title' => 'Apps Documentation',
                 'subtitle' => 'Input New Sub-Category',
+                'validation' => $this->validation,
                 'apps' => $this->appsModel->findAll()
             ];
             return view('admin/apps_sub_category/apps_sub_category_input_view', $data);
@@ -48,6 +51,7 @@ class AppsSubCategoryController extends BaseController
             $data = [
                 'title' => 'Apps Documentation',
                 'subtitle' => 'Edit Sub-Category',
+                'validation' => $this->validation,
                 'apps_sub_category' => $this->appsSubCategoryModel->find($apps_sub_category_pid),
                 'apps' => $this->appsModel->findAll()
             ];
@@ -66,12 +70,29 @@ class AppsSubCategoryController extends BaseController
     public function Insert()
     {
         try {
+            if (!$this->validate([
+                'apps_sub_category_banner_img' => [
+                    'rules' => 'max_size[apps_sub_category_banner_img,200]|mime_in[apps_sub_category_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_sub_category_banner_img,png,jpg,jpeg]|is_image[apps_sub_category_banner_img]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
+
+            $appsSubCategoryBannerImg = $this->request->getFile('apps_sub_category_banner_img');
+
+            $appsSubCategoryBannerImgName = $appsSubCategoryBannerImg->getError() == 4 ? null : $appsSubCategoryBannerImg->getName();
+
             $this->appsSubCategoryModel->insert([
                 'apps_pid' => $this->request->getVar('apps_pid'),
                 'apps_sub_category_title' => $this->request->getVar('apps_sub_category_title'),
-                'apps_sub_banner_img' => $this->request->getVar('apps_sub_banner_img'),
+                'apps_sub_banner_img' => $appsSubCategoryBannerImgName,
                 'created_by' => session()->get('users_email')
             ]);
+
+            if (!empty($appsSubCategoryBannerImgName)) {
+                $appsSubCategoryBannerImg->move('assets/uploads/banners/', $appsSubCategoryBannerImgName);
+            }
+
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
             return redirect()->to('admin/apps-documentation');
         } catch (\Throwable $th) {
