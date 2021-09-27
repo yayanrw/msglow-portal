@@ -15,6 +15,7 @@ class AppsDocumentationController extends BaseController
     protected $appsModel;
     protected $appsSubCategoryModel;
     protected $appsDocumentationModel;
+    protected $validation;
 
     public function __construct()
     {
@@ -23,6 +24,7 @@ class AppsDocumentationController extends BaseController
         $this->logErrorModel = new LogErrorModel();
         $this->appsModel = new AppsModel();
         $this->appsDocumentationModel = new AppsDocumentationModel();
+        $this->validation =  \Config\Services::validation();
     }
 
     public function Index()
@@ -51,6 +53,7 @@ class AppsDocumentationController extends BaseController
             $data = [
                 'title' => 'Apps Documentation',
                 'subtitle' => 'Input New Document',
+                'validation' => $this->validation,
                 'apps_sub_category' => $this->appsModel->AppsWithAppsSubCategory()->getResult('array')
             ];
             return view('admin/apps_documentation/apps_documentation_input_view', $data);
@@ -89,13 +92,39 @@ class AppsDocumentationController extends BaseController
     public function Insert()
     {
         try {
+            if (!$this->validate([
+                'apps_document_file' => [
+                    'rules' => 'max_size[apps_document_file,5000]|mime_in[apps_document_file,application/pdf]|ext_in[apps_document_file,pdf]',
+                ],
+                'apps_document_banner_img' => [
+                    'rules' => 'max_size[apps_document_banner_img,200]|mime_in[apps_document_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_document_banner_img,png,jpg,jpeg]|is_image[apps_document_banner_img]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
+
+            $appsDocumentFile = $this->request->getFile('apps_document_file');
+            $appsDocumentBannerImg = $this->request->getFile('apps_document_banner_img');
+
+            $appsDocumentFileName = $appsDocumentFile->getError() == 4 ? null : $appsDocumentFile->getName();
+            $appsDocumentBannerImgName = $appsDocumentBannerImg->getError() == 4 ? null : $appsDocumentBannerImg->getName();
+
             $this->appsDocumentationModel->insert([
                 'apps_sub_category_pid' =>  $this->request->getVar('apps_sub_category_pid'),
                 'apps_document_title' =>  $this->request->getVar('apps_document_title'),
-                'apps_document_file' =>  $this->request->getVar('apps_document_file'),
-                'apps_document_banner_img' =>  $this->request->getVar('apps_document_banner_img'),
+                'apps_document_file' =>  $appsDocumentFileName,
+                'apps_document_banner_img' =>  $appsDocumentBannerImgName,
                 'created_by' =>  session()->get('users_email')
             ]);
+
+            if (!empty($appsDocumentFileName)) {
+                $appsDocumentFile->move('assets/uploads/documents/', $appsDocumentFileName);
+            }
+
+            if (!empty($appsDocumentBannerImgName)) {
+                $appsDocumentBannerImg->move('assets/uploads/banners/', $appsDocumentBannerImgName);
+            }
+
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
             return redirect()->to('admin/apps-documentation');
         } catch (\Throwable $th) {
