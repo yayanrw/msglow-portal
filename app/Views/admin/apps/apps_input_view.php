@@ -94,7 +94,7 @@
                                     <label class="col-form-label text-black" for="apps_url">App URL</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_url" class="form-control" name="apps_url" placeholder="For example: http://erp.msglow.work/">
+                                    <input type="text" id="apps_url" class="form-control" name="apps_url" placeholder="For example: http://erp.msglow.work/" value="<?= old('apps_url'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                     <label class="col-form-label text-black" for="apps_date_release">App Date Release</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="date" id="apps_date_release" class="form-control" name="apps_date_release">
+                                    <input type="date" id="apps_date_release" class="form-control" name="apps_date_release" value="<?= old('apps_date_release'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -154,7 +154,7 @@
                                     <label class="col-form-label text-black" for="apps_key_session">App Key Session</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_key_session" class="form-control" name="apps_key_session" placeholder="App key session">
+                                    <input type="text" id="apps_key_session" class="form-control" name="apps_key_session" placeholder="App key session" <?= old('apps_key_session'); ?>>
                                 </div>
                             </div>
                         </div>
