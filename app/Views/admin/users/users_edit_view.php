@@ -2,9 +2,28 @@
 
 <?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/form-validation.css'); ?>">
 <?= $this->endSection(); ?>
 
 <?= $this->section('custom_js'); ?>
+<script src="<?= base_url('assets/js/jquery.validate.min.js'); ?>"></script>
+<script>
+    $(function() {
+        'use strict';
+        if ($('#frm_users').length) {
+            $('#frm_users').validate({
+                rules: {
+                    'users_email': {
+                        required: true
+                    },
+                    'confirm_users_password': {
+                        equalTo: '#users_password'
+                    },
+                }
+            });
+        }
+    });
+</script>
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
@@ -12,7 +31,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body p-3">
-                <form class="form form-horizontal" action="<?= base_url('admin/users/update'); ?>" method="post">
+                <form id="frm_users" name="frm_users" class="form form-horizontal" action="<?= base_url('admin/users/update'); ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="row">
                         <div class="col-12">
