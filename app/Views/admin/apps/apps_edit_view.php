@@ -2,14 +2,40 @@
 
 <?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
+<link rel="stylesheet" href="<?= base_url('assets/css/form-validation.css'); ?>">
 <?= $this->endSection(); ?>
+
+<?= $this->section('custom_js'); ?>
+<script src="<?= base_url('assets/js/jquery.validate.min.js'); ?>"></script>
+<script>
+    $(function() {
+        'use strict';
+        if ($('#frm_apps').length) {
+            $('#frm_apps').validate({
+                rules: {
+                    'apps_name': {
+                        required: true
+                    },
+                    'apps_owner': {
+                        required: true
+                    },
+                    'apps_url': {
+                        required: true
+                    },
+                }
+            });
+        }
+    });
+</script>
+<?= $this->endSection(); ?>
+
 
 <?= $this->section('content'); ?>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body p-3">
-            <form class="form form-horizontal" action="<?= base_url('admin/apps-management/update'); ?>" method="post">
+                <form id="frm_apps" name="frm_apps" class="form form-horizontal" action="<?= base_url('admin/apps-management/update'); ?>" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-1 row">
@@ -50,10 +76,15 @@
                                 <div class="col-sm-3">
                                     <select class="form-select text-black" id="apps_owner" name="apps_owner">
                                         <option value="">- Choose owner -</option>
-                                        <option value="IT" <?= $apps['apps_owner'] == "IT" ? 'selected' : null ?>>IT</option>
-                                        <option value="HRGA" <?= $apps['apps_owner'] == "HRGA" ? 'selected' : null ?>>HRGA</option>
+                                        <option value="Accounting" <?= $apps['apps_owner'] == "Accounting" ? 'selected' : null ?>>Accounting</option>
+                                        <option value="Audit" <?= $apps['apps_owner'] == "Audit" ? 'selected' : null ?>>Audit</option>
+                                        <option value="Business Development" <?= $apps['apps_owner'] == "Business Development" ? 'selected' : null ?>>Business Development</option>
+                                        <option value="Design" <?= $apps['apps_owner'] == "Design" ? 'selected' : null ?>>Design</option>
+                                        <option value="Human Resource" <?= $apps['apps_owner'] == "Human Resource" ? 'selected' : null ?>>Human Resource</option>
+                                        <option value="Information Technology" <?= $apps['apps_owner'] == "Information Technology" ? 'selected' : null ?>>Information Technology</option>
                                         <option value="Marketing" <?= $apps['apps_owner'] == "Marketing" ? 'selected' : null ?>>Marketing</option>
-                                        <option value="Legal" <?= $apps['apps_owner'] == "Legal" ? 'selected' : null ?>>Legal</option>
+                                        <option value="Product" <?= $apps['apps_owner'] == "Product" ? 'selected' : null ?>>Product</option>
+                                        <option value="Sales" <?= $apps['apps_owner'] == "Sales" ? 'selected' : null ?>>Sales</option>
                                     </select>
                                 </div>
                             </div>
@@ -84,7 +115,26 @@
                                     <label class="col-form-label text-black" for="contact-info">App Icon</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_icon" name="apps_icon" class="form-control text-black" type="file" id="formFile">
+                                    <!-- <a href="<?= base_url('assets/uploads/icons/' . $apps['apps_icon']); ?>" target="_blank"> -->
+                                    <div class="alert alert-primary <?= $apps['apps_icon'] == "" ? 'hidden' : null ?>" role="alert">
+                                        <div class="alert-body">
+                                            <strong>
+                                                <?= $apps['apps_icon']; ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <input id="apps_icon" name="apps_icon" class="form-control text-black <?= $validation->hasError('apps_icon') ? 'is-invalid' : null; ?>" type="file">
+                                    <div class="invalid-feedback"><?= $validation->getError('apps_icon'); ?></div>
+                                    <div class="alert alert-warning font-small-3 mt-1" role="alert">
+                                        <div class="alert-body">
+                                            <ul class="m-0">
+                                                <li>File format: SVG/PNG</li>
+                                                <li>Recommended size: 100x100 px</li>
+                                                <li>Max file size: 100kb</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +144,26 @@
                                     <label class="col-form-label text-black" for="contact-info">App Banner</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control text-black" type="file" id="formFile">
+                                    <!-- <a href="<?= base_url('assets/uploads/banners/' . $apps['apps_banner_img']); ?>" target="_blank"> -->
+                                    <div class="alert alert-primary <?= $apps['apps_banner_img'] == "" ? 'hidden' : null ?>" role="alert">
+                                        <div class="alert-body">
+                                            <strong>
+                                                <?= $apps['apps_banner_img']; ?>
+                                            </strong>
+                                        </div>
+                                    </div>
+                                    <!-- </a> -->
+                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control text-black <?= $validation->hasError('apps_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <div class="invalid-feedback"><?= $validation->getError('apps_banner_img'); ?></div>
+                                    <div class="alert alert-warning font-small-3 mt-1" role="alert">
+                                        <div class="alert-body">
+                                            <ul class="m-0">
+                                                <li>File format: JPG/JPEG/PNG</li>
+                                                <li>Recommended size: 1440x400 px</li>
+                                                <li>Max file size: 200kb</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
