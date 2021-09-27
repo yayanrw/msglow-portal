@@ -53,7 +53,7 @@
                                     <label class="col-form-label text-black" for="apps_document_title">Document Title</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_document_title" class="form-control" name="apps_document_title" placeholder="Document title" value="<?= old('apps_document_title') ?>" required>
+                                    <input type="text" id="apps_document_title" class="form-control text-black" name="apps_document_title" placeholder="Document title" value="<?= old('apps_document_title') ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                     <label class="col-form-label text-black" for="apps_document_file">Upload Document File</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_document_file" name="apps_document_file" class="form-control <?= $validation->hasError('apps_document_file') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="apps_document_file" name="apps_document_file" class="form-control text-black <?= $validation->hasError('apps_document_file') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('apps_document_file'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
@@ -82,7 +82,7 @@
                                     <label class="col-form-label text-black" for="apps_document_banner_img">Page Banner Image</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_document_banner_img" name="apps_document_banner_img" class="form-control <?= $validation->hasError('apps_document_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="apps_document_banner_img" name="apps_document_banner_img" class="form-control text-black <?= $validation->hasError('apps_document_banner_img') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('apps_document_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
