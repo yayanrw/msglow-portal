@@ -148,9 +148,7 @@ class AppsController extends BaseController
                     'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
                 ]
             ])) {
-                if (count($this->request->getFiles()) > 0) {
-                    return redirect()->back()->withInput();
-                }
+                return redirect()->back()->withInput();
             }
 
             $appsIcon = $this->request->getFile('apps_icon');
