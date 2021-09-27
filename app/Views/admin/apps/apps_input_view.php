@@ -134,7 +134,8 @@
                                     <label class="col-form-label text-black" for="contact-info">App Banner</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control" type="file">
+                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control <?= $validation->hasError('apps_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <div class="invalid-feedback"><?= $validation->getError('apps_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
                                             <ul class="m-0">
