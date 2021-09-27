@@ -87,7 +87,7 @@ class AppsController extends BaseController
         try {
             if (!$this->validate([
                 'apps_icon' => [
-                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg+xml]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
                 ],
                 'apps_banner_img' => [
                     'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
@@ -142,13 +142,13 @@ class AppsController extends BaseController
         try {
             if (!$this->validate([
                 'apps_icon' => [
-                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg+xml]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
                 ],
                 'apps_banner_img' => [
                     'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
                 ]
             ])) {
-                if (is_null($this->request->getFiles())) {
+                if (count($this->request->getFiles()) > 0) {
                     return redirect()->back()->withInput();
                 }
             }
@@ -156,8 +156,10 @@ class AppsController extends BaseController
             $appsIcon = $this->request->getFile('apps_icon');
             $appsBannerImg = $this->request->getFile('apps_banner_img');
 
-            $appsIconName = $appsIcon->getRandomName();
-            $appsBannerImgName = $appsBannerImg->getRandomName();
+            $appsIconName = $appsIcon->getError() == 4 ? null : $appsIcon->getName();
+            $appsBannerImgName = $appsBannerImg->getError() == 4 ? null : $appsBannerImg->getName();
+
+            $apps = $this->appsModel->find($this->request->getVar('apps_pid'));
 
             $this->appsModel->update($this->request->getVar('apps_pid'), [
                 'apps_name'         => $this->request->getVar('apps_name'),
@@ -166,14 +168,28 @@ class AppsController extends BaseController
                 'apps_owner'        => $this->request->getVar('apps_owner'),
                 'apps_url'          => $this->request->getVar('apps_url'),
                 'apps_date_release' => $this->request->getVar('apps_date_release'),
-                'apps_icon'         => $this->request->getVar('apps_icon'),
-                'apps_banner_img'   => $this->request->getVar('apps_banner_img'),
+                'apps_icon'         => !empty($appsIconName) ? $appsIconName : $apps['apps_icon'],
+                'apps_banner_img'   => !empty($appsBannerImgName) ? $appsBannerImgName : $apps['apps_banner_img'],
                 'apps_key_session'  => $this->request->getVar('apps_key_session'),
                 'updated_at'        => date("Y-m-d H:i:s"),
                 'updated_by'        => session()->get('users_email')
             ]);
+
+            if (!empty($appsIconName)) {
+                if (isset($apps['apps_icon'])) {
+                    unlink('assets/uploads/icons/' . $apps['apps_icon']);
+                }
+                $appsIcon->move('assets/uploads/icons/', $appsIconName);
+            }
+
+            if (!empty($appsBannerImgName)) {
+                if (isset($apps['apps_banner_img'])) {
+                    unlink('assets/uploads/banners/' . $apps['apps_banner_img']);
+                }
+                $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+            }
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
-            return redirect()->to('admin/apps-management'); //code...
+            return redirect()->to('admin/apps-management');
         } catch (\Throwable $th) {
             $this->logErrorModel->InsertLog(
                 $this->router->controllerName(),
