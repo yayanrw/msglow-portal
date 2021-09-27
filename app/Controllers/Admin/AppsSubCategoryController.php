@@ -109,13 +109,34 @@ class AppsSubCategoryController extends BaseController
     public function Update()
     {
         try {
+            if (!$this->validate([
+                'apps_sub_category_banner_img' => [
+                    'rules' => 'max_size[apps_sub_category_banner_img,200]|mime_in[apps_sub_category_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_sub_category_banner_img,png,jpg,jpeg]|is_image[apps_sub_category_banner_img]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
+
+            $appsSubCategoryBannerImg = $this->request->getFile('apps_sub_category_banner_img');
+            $appsSubCategoryBannerImgName = $appsSubCategoryBannerImg->getError() == 4 ? null : $appsSubCategoryBannerImg->getName();
+
+            $appsSubCategory = $this->appsSubCategoryModel->find($this->request->getVar('apps_sub_category_pid'));
+
             $this->appsSubCategoryModel->update($this->request->getVar('apps_sub_category_pid'), [
                 'apps_pid' => $this->request->getVar('apps_pid'),
                 'apps_sub_category_title' => $this->request->getVar('apps_sub_category_title'),
-                'apps_sub_category_banner_img' => $this->request->getVar('apps_sub_category_banner_img'),
+                'apps_sub_category_banner_img' => !empty($appsSubCategoryBannerImgName) ? $appsSubCategoryBannerImgName : $appsSubCategory['apps_sub_category_banner_img'],
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => session()->get('users_email')
             ]);
+
+            if (!empty($appsSubCategoryBannerImgName)) {
+                if (isset($appsSubCategory['apps_sub_category_banner_img'])) {
+                    unlink('assets/uploads/banners/' . $appsSubCategory['apps_sub_category_banner_img']);
+                }
+                $appsSubCategoryBannerImg->move('assets/uploads/banners/', $appsSubCategoryBannerImgName);
+            }
+
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
             return redirect()->to('admin/apps-documentation');
         } catch (\Throwable $th) {
