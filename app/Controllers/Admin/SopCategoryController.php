@@ -104,12 +104,34 @@ class SopCategoryController extends BaseController
     public function Update()
     {
         try {
+            if (!$this->validate([
+                'sop_category_banner_img' => [
+                    'rules' => 'max_size[sop_category_banner_img,200]|mime_in[sop_category_banner_img,image/png,image/jpg,image/jpeg]|ext_in[sop_category_banner_img,png,jpg,jpeg]|is_image[sop_category_banner_img]',
+                ]
+            ])) {
+                return redirect()->back()->withInput();
+            }
+
+            $sopCategoryBannerImg = $this->request->getFile('sop_category_banner_img');
+
+            $sopCategoryBannerImgName = $sopCategoryBannerImg->getError() == 4 ? null : $sopCategoryBannerImg->getName();
+
+            $sopCategory = $this->sopCategoryModel->find($this->request->getVar('sop_category_pid'));
+
             $this->sopCategoryModel->update($this->request->getVar('sop_category_pid'), [
                 'sop_category_title' => $this->request->getVar('sop_category_title'),
-                'sop_category_banner_img' => $this->request->getVar('sop_category_banner_img'),
+                'sop_category_banner_img' => !empty($sopCategoryBannerImgName) ? $sopCategoryBannerImgName : $sopCategory['sop_category_banner_img'],
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => session()->get('users_email')
             ]);
+
+            if (!empty($sopCategoryBannerImgName)) {
+                if (isset($sopCategory['sop_category_banner_img'])) {
+                    unlink('assets/uploads/banners/' . $sopCategory['sop_category_banner_img']);
+                }
+                $sopCategoryBannerImg->move('assets/uploads/banners/', $sopCategoryBannerImgName);
+            }
+
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
             return redirect()->to('admin/sop-documents');
         } catch (\Throwable $th) {
