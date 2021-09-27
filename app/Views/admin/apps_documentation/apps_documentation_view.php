@@ -137,24 +137,26 @@
                         <?php
                         $no = 1;
                         foreach ($apps_sub_category as $key) { ?>
-                            <td class="bg-white"><?= $no++; ?></td>
-                            <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
-                            <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
-                            <td class="bg-white"><?= $key['count_documents_assigned']; ?> documents</td>
-                            <td class="bg-white">
-                                <a href="<?= base_url('admin/apps-sub-category/edit/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
-                                    <i data-feather='edit-3'></i>
-                                </a>
-                                <?php if ($key['apps_sub_category_is_active']) { ?>
-                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable document">
-                                        <i data-feather='lock'></i>
+                            <tr>
+                                <td class="bg-white"><?= $no++; ?></td>
+                                <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
+                                <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
+                                <td class="bg-white"><?= $key['count_documents_assigned']; ?> documents</td>
+                                <td class="bg-white">
+                                    <a href="<?= base_url('admin/apps-sub-category/edit/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
+                                        <i data-feather='edit-3'></i>
                                     </a>
-                                <?php } else { ?>
-                                    <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable document">
-                                        <i data-feather='upload-cloud'></i>
-                                    </a>
-                                <?php } ?>
-                            </td>
+                                    <?php if ($key['apps_sub_category_is_active']) { ?>
+                                        <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-danger waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Disable document">
+                                            <i data-feather='lock'></i>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('admin/apps-sub-category/active/' . $key['apps_sub_category_pid']); ?>" class="btn btn-icon btn-success waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enable document">
+                                            <i data-feather='upload-cloud'></i>
+                                        </a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
                         <?php } ?>
                     </tbody>
                 </table>
