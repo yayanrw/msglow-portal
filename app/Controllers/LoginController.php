@@ -24,7 +24,7 @@ class LoginController extends BaseController
     {
         try {
             if (session()->get('logged_in')) {
-                if (session()->get('is_administrator')) {
+                if (session()->get('is_admin')) {
                     return redirect()->to('/admin');
                 } else {
                     return redirect()->to('/user');
@@ -61,7 +61,8 @@ class LoginController extends BaseController
                         'users_email'      => $users->users_email,
                         'users_name'       => $users->users_name,
                         'users_division'   => $users->users_division,
-                        'is_administrator' => $users->is_administrator,
+                        'is_admin'         => $users->is_administrator,
+                        'is_user'          => !$users->is_administrator,
                         'logged_in'        => true,
                         'last_logged_in'   => date("Y-m-d H:i:s")
                     ];

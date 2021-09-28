@@ -35,7 +35,7 @@ $routes->get('/', 'LoginController::Index');
 $routes->get('login', 'LoginController::Index');
 $routes->get('logout', 'LoginController::Logout');
 $routes->post('auth', 'LoginController::Auth');
-$routes->group('admin', ['filter' => 'auth'], function ($routes) {
+$routes->group('admin', ['filter' => 'is_admin'], function ($routes) {
     // home
     $routes->add('/', 'Admin\HomeController::Index');
     $routes->add('home', 'Admin\HomeController::Index');
@@ -83,7 +83,7 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->add('users/edit/(:any)', 'Admin\UsersController::Edit/$1');
     $routes->add('users/update', 'Admin\UsersController::Update');
 });
-$routes->group('user', ['filter' => 'auth'], function ($routes) {
+$routes->group('user', ['filter' => 'is_user'], function ($routes) {
     // home
     $routes->add('/', 'User\HomeController::Index');
     $routes->add('home', 'User\HomeController::Index');
