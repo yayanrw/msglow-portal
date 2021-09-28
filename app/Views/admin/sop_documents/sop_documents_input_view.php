@@ -53,7 +53,17 @@
                                     <label class="col-form-label text-black" for="sop_documents_title">Document Title</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="sop_documents_title" class="form-control" name="sop_documents_title" placeholder="Document title" value="<?= old('sop_documents_title'); ?>" required>
+                                    <input type="text" id="sop_documents_title" class="form-control text-black" name="sop_documents_title" placeholder="Document title" value="<?= old('sop_documents_title'); ?>" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-1 row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label text-black" for="sop_documents_desc">Document Description</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textarea name="sop_documents_desc" id="sop_documents_desc" class="form-control text-black" cols="30" rows="5"><?= old('sop_documents_desc'); ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +73,7 @@
                                     <label class="col-form-label text-black" for="sop_documents_file">Upload Document File</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="sop_documents_file" name="sop_documents_file" class="form-control <?= $validation->hasError('sop_documents_file') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="sop_documents_file" name="sop_documents_file" class="form-control text-black <?= $validation->hasError('sop_documents_file') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('sop_documents_file'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">

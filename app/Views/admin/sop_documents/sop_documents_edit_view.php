@@ -53,8 +53,18 @@
                                     <label class="col-form-label text-black" for="sop_documents_title">Document Title</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="sop_documents_pid" class="form-control" name="sop_documents_pid" placeholder="Document pid" value="<?= $sop_documents['sop_documents_pid']; ?>" hidden required>
-                                    <input type="text" id="sop_documents_title" class="form-control" name="sop_documents_title" placeholder="Document title" value="<?= $sop_documents['sop_documents_title']; ?>" required>
+                                    <input type="text" id="sop_documents_pid" class="form-control text-black" name="sop_documents_pid" placeholder="Document pid" value="<?= $sop_documents['sop_documents_pid']; ?>" hidden required>
+                                    <input type="text" id="sop_documents_title" class="form-control text-black" name="sop_documents_title" placeholder="Document title" value="<?= $sop_documents['sop_documents_title']; ?>" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-1 row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label text-black" for="sop_documents_desc">Document Description</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textarea name="sop_documents_desc" id="sop_documents_desc" class="form-control text-black" cols="30" rows="5"><?= $sop_documents['sop_documents_desc']; ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +81,7 @@
                                             </strong>
                                         </div>
                                     </div>
-                                    <input id="sop_documents_file" name="sop_documents_file" class="form-control <?= $validation->hasError('sop_documents_file') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="sop_documents_file" name="sop_documents_file" class="form-control text-black <?= $validation->hasError('sop_documents_file') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('sop_documents_file'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
@@ -97,7 +107,7 @@
                                             </strong>
                                         </div>
                                     </div>
-                                    <input id="sop_documents_banner_img" name="sop_documents_banner_img" class="form-control <?= $validation->hasError('sop_documents_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="sop_documents_banner_img" name="sop_documents_banner_img" class="form-control text-black <?= $validation->hasError('sop_documents_banner_img') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('sop_documents_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">

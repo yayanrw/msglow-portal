@@ -112,6 +112,7 @@ class SopDocumentsController extends BaseController
             $this->sopDocumentsModel->insert([
                 'sop_category_pid' =>  $this->request->getVar('sop_category_pid'),
                 'sop_documents_title' =>  $this->request->getVar('sop_documents_title'),
+                'sop_documents_desc' =>  $this->request->getVar('sop_documents_desc'),
                 'sop_documents_file' =>  $sopDocumentsFileName,
                 'sop_documents_banner_img' =>  $sopDocumentsBannerImgName,
                 'created_by' =>  session()->get('users_email')
@@ -163,9 +164,10 @@ class SopDocumentsController extends BaseController
 
             $this->sopDocumentsModel->update($this->request->getVar('sop_documents_pid'), [
                 'sop_category_pid' => $this->request->getVar('sop_category_pid'),
+                'sop_documents_title' => $this->request->getVar('sop_documents_title'),
+                'sop_documents_desc' => $this->request->getVar('sop_documents_desc'),
                 'sop_documents_file' => !empty($sopDocumentsFileName) ? $sopDocumentsFileName : $sopDocuments['sop_documents_file'],
                 'sop_documents_banner_img' => !empty($sopDocumentsBannerImgName) ? $sopDocumentsBannerImgName : $sopDocuments['sop_documents_banner_img'],
-                'sop_documents_title' => $this->request->getVar('sop_documents_title'),
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => session()->get('users_email')
             ]);
