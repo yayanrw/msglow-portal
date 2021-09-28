@@ -52,7 +52,7 @@
                             <p class="card-text">
                                 <?= $key['apps_document_desc']; ?>
                             </p>
-                            <a href="<?= base_url('user/apps-documentations/detail/' . $key['apps_document_pid']); ?>" class="btn btn-outline-primary waves-effect">Open Document</a>
+                            <a href="<?= base_url('user/apps-documentation/detail/' . $key['apps_document_pid']); ?>" class="btn btn-outline-primary waves-effect">Open Document</a>
                         </div>
                     </div>
                 </div>
