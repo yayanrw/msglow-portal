@@ -63,7 +63,7 @@
                                     <label class="col-form-label text-black" for="apps_sub_category_banner_img">Page Banner Image</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_sub_category_banner_img" name="apps_sub_category_banner_img" class="form-control <?= $validation->hasError('apps_sub_category_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="apps_sub_category_banner_img" name="apps_sub_category_banner_img" class="form-control text-black <?= $validation->hasError('apps_sub_category_banner_img') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('apps_sub_category_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">

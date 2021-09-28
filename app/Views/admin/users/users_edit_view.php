@@ -40,8 +40,8 @@
                                     <label class="col-form-label text-black" for="users_email">User Email</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="users_pid" class="form-control" name="users_pid" placeholder="User Pid" value="<?= $users->users_pid; ?>" hidden required>
-                                    <input type="text" id="users_email" class="form-control" name="users_email" placeholder="User Email" value="<?= $users->users_email; ?>" required>
+                                    <input type="text" id="users_pid" class="form-control text-black" name="users_pid" placeholder="User Pid" value="<?= $users->users_pid; ?>" hidden required>
+                                    <input type="text" id="users_email" class="form-control text-black" name="users_email" placeholder="User Email" value="<?= $users->users_email; ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                     <label class="col-form-label text-black" for="users_password">New Password</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input id="users_password" name="users_password" class="form-control" type="password" placeholder="New Password">
+                                    <input id="users_password" name="users_password" class="form-control text-black" type="password" placeholder="New Password">
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                     <label class="col-form-label text-black" for="confirm_users_password">Confirm New Password</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input id="confirm_users_password" name="confirm_users_password" class="form-control" type="password" placeholder="Confirm New Password">
+                                    <input id="confirm_users_password" name="confirm_users_password" class="form-control text-black" type="password" placeholder="Confirm New Password">
                                 </div>
                             </div>
                         </div>

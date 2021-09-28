@@ -55,7 +55,7 @@
                                             </strong>
                                         </div>
                                     </div>
-                                    <input id="sop_category_banner_img" name="sop_category_banner_img" class="form-control <?= $validation->hasError('sop_category_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="sop_category_banner_img" name="sop_category_banner_img" class="form-control text-black <?= $validation->hasError('sop_category_banner_img') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('sop_category_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">

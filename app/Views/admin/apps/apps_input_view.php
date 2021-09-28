@@ -43,7 +43,7 @@
                                     <label class="col-form-label text-black" for="apps_name">App Title</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_name" class="form-control" name="apps_name" placeholder="App title" value="<?= old('apps_name'); ?>" required>
+                                    <input type="text" id="apps_name" class="form-control text-black" name="apps_name" placeholder="App title" value="<?= old('apps_name'); ?>" required>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                     <label class="col-form-label text-black" for="apps_subname">App Subtitle</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_subname" class="form-control" name="apps_subname" placeholder="App subtitle" value="<?= old('apps_subname'); ?>">
+                                    <input type="text" id="apps_subname" class="form-control text-black" name="apps_subname" placeholder="App subtitle" value="<?= old('apps_subname'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                     <label class="col-form-label text-black" for="apps_desc">App Description</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <textarea id="apps_desc" name="apps_desc" class="form-control" placeholder="App description"><?= old('apps_desc'); ?></textarea>
+                                    <textarea id="apps_desc" name="apps_desc" class="form-control text-black" placeholder="App description"><?= old('apps_desc'); ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                     <label class="col-form-label text-black" for="apps_url">App URL</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_url" class="form-control" name="apps_url" placeholder="For example: http://erp.msglow.work/" value="<?= old('apps_url'); ?>">
+                                    <input type="text" id="apps_url" class="form-control text-black" name="apps_url" placeholder="For example: http://erp.msglow.work/" value="<?= old('apps_url'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                     <label class="col-form-label text-black" for="apps_date_release">App Date Release</label>
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="date" id="apps_date_release" class="form-control" name="apps_date_release" value="<?= old('apps_date_release'); ?>">
+                                    <input type="date" id="apps_date_release" class="form-control text-black" name="apps_date_release" value="<?= old('apps_date_release'); ?>">
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                                     <label class="col-form-label text-black" for="contact-info">App Icon</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_icon" name="apps_icon" class="form-control <?= $validation->hasError('apps_icon') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="apps_icon" name="apps_icon" class="form-control text-black <?= $validation->hasError('apps_icon') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('apps_icon'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
@@ -134,7 +134,7 @@
                                     <label class="col-form-label text-black" for="contact-info">App Banner</label>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control <?= $validation->hasError('apps_banner_img') ? 'is-invalid' : null; ?>" type="file">
+                                    <input id="apps_banner_img" name="apps_banner_img" class="form-control text-black <?= $validation->hasError('apps_banner_img') ? 'is-invalid' : null; ?>" type="file">
                                     <div class="invalid-feedback"><?= $validation->getError('apps_banner_img'); ?></div>
                                     <div class="alert alert-warning font-small-3 mt-1" role="alert">
                                         <div class="alert-body">
@@ -154,7 +154,7 @@
                                     <label class="col-form-label text-black" for="apps_key_session">App Key Session</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <input type="text" id="apps_key_session" class="form-control" name="apps_key_session" placeholder="App key session" <?= old('apps_key_session'); ?>>
+                                    <input type="text" id="apps_key_session" class="form-control text-black" name="apps_key_session" placeholder="App key session" <?= old('apps_key_session'); ?>>
                                 </div>
                             </div>
                         </div>
