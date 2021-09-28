@@ -91,7 +91,7 @@
                             <tr>
                                 <td class="bg-white"><?= $no++; ?></td>
                                 <td class="bg-white"><?= $key['apps_document_title']; ?></td>
-                                <td class="bg-white"><?= $key['apps_name']; ?> <?= $key['apps_subname']; ?></td>
+                                <td class="bg-white"><?= $key['apps_name']; ?> - <?= $key['apps_subname']; ?></td>
                                 <td class="bg-white"><?= $key['apps_sub_category_title']; ?></td>
                                 <td class="bg-white">
                                     <a href="<?= base_url('admin/apps-documentation/edit/' . $key['apps_document_pid']); ?>" class="btn btn-icon btn-warning waves-effect waves-float waves-light" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Edit">
