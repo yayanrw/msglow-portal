@@ -25,9 +25,10 @@ class AppsController extends BaseController
     public function Detail($apps_pid = null)
     {
         try {
+            $apps = $this->appsModel->find($apps_pid);
             $data = [
-                'title'                 => $apps['apps_name'] ?? "No Data",
-                'apps'                  => $this->appsModel->find($apps_pid),
+                'title'                 => $apps['apps_name'],
+                'apps'                  => $apps,
                 'apps_documentation'    => $this->appsDocumentationModel->AppsDocumentationWithAppsSubCategoryByApps($apps_pid)
             ];
             return view('user/apps/apps_detail_view', $data);
