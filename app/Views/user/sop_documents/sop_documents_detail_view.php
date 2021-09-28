@@ -2,6 +2,28 @@
 
 <?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
+<style>
+    iframe {
+        display: block;
+        /* iframes are inline by default */
+        background: #000;
+        border: none;
+        /* Reset default border */
+        height: 100vh;
+        /* Viewport-relative units */
+    }
+</style>
+<?= $this->endSection(); ?>
+
+<?= $this->section('custom_js'); ?>
+<script>
+    // var iframe = document.getElementById("myIframe");
+
+    // Adjusting the iframe height onload event
+    iframe.onload = function() {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
+</script>
 <?= $this->endSection(); ?>
 
 <?= $this->section('content'); ?>
@@ -20,66 +42,10 @@
 
 <section id="knowledge-base-content">
     <div class="row">
-        <div class="col-8">
-            <h4 class="pt-3 text-black fw-bolder pb-1">Heading 1</h4>
-            <p class="text-black">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ut, esse praesentium
-                neque inventore hic corporis voluptate totam fugit aliquid necessitatibus reprehenderit
-                laudantium magni nemo dicta et quos quae debitis quis obcaecati repellendus mollitia
-                tempore
-                quam. Praesentium a distinctio illum culpa quidem voluptatem temporibus dolor
-                reiciendis,
-                suscipit quis. Nesciunt amet veritatis provident placeat. Maxime ut quidem optio saepe
-                corrupti inventore nulla numquam. Illo ipsam animi fuga eveniet, recusandae veritatis
-                saepe
-                soluta sed molestiae, sequi rem officiis quaerat in provident tempore possimus ab natus
-                necessitatibus, ex laborum? Sunt ipsa doloribus quae, maxime quasi, consequuntur eius
-                nostrum impedit a aliquid mollitia dolor?
-            </p>
-            <p class="text-black">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ut, esse praesentium
-                neque inventore hic corporis voluptate totam fugit aliquid necessitatibus reprehenderit
-                laudantium magni nemo dicta et quos quae debitis quis obcaecati repellendus mollitia
-                tempore
-                quam. Praesentium a distinctio illum culpa quidem voluptatem temporibus dolor
-                reiciendis,
-                suscipit quis. Nesciunt amet veritatis provident placeat. Maxime ut quidem optio saepe
-                corrupti inventore nulla numquam. Illo ipsam animi fuga eveniet, recusandae veritatis
-                saepe
-                soluta sed molestiae, sequi rem officiis quaerat in provident tempore possimus ab natus
-                necessitatibus, ex laborum? Sunt ipsa doloribus quae, maxime quasi, consequuntur eius
-                nostrum impedit a aliquid mollitia dolor?
-            </p>
-
-            <h4 class="pt-3 text-black fw-bolder pb-1">Heading 2</h4>
-            <p class="text-black">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ut, esse praesentium
-                neque inventore hic corporis voluptate totam fugit aliquid necessitatibus reprehenderit
-                laudantium magni nemo dicta et quos quae debitis quis obcaecati repellendus mollitia
-                tempore
-                quam. Praesentium a distinctio illum culpa quidem voluptatem temporibus dolor
-                reiciendis,
-                suscipit quis. Nesciunt amet veritatis provident placeat. Maxime ut quidem optio saepe
-                corrupti inventore nulla numquam. Illo ipsam animi fuga eveniet, recusandae veritatis
-                saepe
-                soluta sed molestiae, sequi rem officiis quaerat in provident tempore possimus ab natus
-                necessitatibus, ex laborum? Sunt ipsa doloribus quae, maxime quasi, consequuntur eius
-                nostrum impedit a aliquid mollitia dolor?
-            </p>
-            <p class="text-black">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis ut, esse praesentium
-                neque inventore hic corporis voluptate totam fugit aliquid necessitatibus reprehenderit
-                laudantium magni nemo dicta et quos quae debitis quis obcaecati repellendus mollitia
-                tempore
-                quam. Praesentium a distinctio illum culpa quidem voluptatem temporibus dolor
-                reiciendis,
-                suscipit quis. Nesciunt amet veritatis provident placeat. Maxime ut quidem optio saepe
-                corrupti inventore nulla numquam. Illo ipsam animi fuga eveniet, recusandae veritatis
-                saepe
-                soluta sed molestiae, sequi rem officiis quaerat in provident tempore possimus ab natus
-                necessitatibus, ex laborum? Sunt ipsa doloribus quae, maxime quasi, consequuntur eius
-                nostrum impedit a aliquid mollitia dolor?
-            </p>
+        <div class="col-10 offset-1">
+            <div class="embed-responsive embed-responsive-21by9">
+                <iframe class="embed-responsive-item" id="myIframe" src="<?= base_url('assets/uploads/documents/' . $sop_documents->sop_documents_file); ?>#zoom=100&toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
+            </div>
         </div>
     </div>
 </section>
