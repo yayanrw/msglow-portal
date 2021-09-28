@@ -96,8 +96,8 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->add('sop-documents', 'User\SopDocumentsController::Index');
     $routes->add('sop-documents/detail/(:any)', 'User\SopDocumentsController::Detail/$1');
 
-    // apps-document
-    $routes->add('apps-document/detail/(:any)', 'User\SopDocumentsController::Detail/$1');
+    // apps-documentation
+    $routes->add('apps-documentation/detail/(:any)', 'User\AppsDocumentationController::Detail/$1');
 });
 
 /*
