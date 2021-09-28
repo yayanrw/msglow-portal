@@ -84,11 +84,20 @@ $routes->group('admin', ['filter' => 'auth'], function ($routes) {
     $routes->add('users/update', 'Admin\UsersController::Update');
 });
 $routes->group('user', ['filter' => 'auth'], function ($routes) {
+    // home
     $routes->add('/', 'User\HomeController::Index');
+    $routes->add('home', 'User\HomeController::Index');
+
+    // apps
     $routes->add('apps', 'User\AppsController::Index');
     $routes->add('apps/detail/(:any)', 'User\AppsController::Detail/$1');
-    $routes->add('documentations', 'User\DocumentationsController::Index');
+
+    // sop-documents
     $routes->add('sop-documents', 'User\SopDocumentsController::Index');
+    $routes->add('sop-documents/detail/(:any)', 'User\SopDocumentsController::Detail/$1');
+
+    // apps-document
+    $routes->add('apps-document/detail/(:any)', 'User\SopDocumentsController::Detail/$1');
 });
 
 /*
