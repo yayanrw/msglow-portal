@@ -8,7 +8,7 @@ class AppsDocumentationModel extends Model
 {
     protected $table      = 't_apps_document';
     protected $primaryKey = 'apps_document_pid';
-    protected $allowedFields = ['apps_sub_category_pid', 'apps_document_title', 'apps_document_file', 'apps_document_banner_img', 'is_active', 'created_by', 'updated_at', 'updated_by'];
+    protected $allowedFields = ['apps_sub_category_pid', 'apps_document_title', 'apps_document_desc', 'apps_document_file', 'apps_document_banner_img', 'is_active', 'created_by', 'updated_at', 'updated_by'];
 
     public function AppsDocumentationWithAppsSubCategory()
     {

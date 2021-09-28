@@ -113,6 +113,7 @@ class AppsDocumentationController extends BaseController
             $this->appsDocumentationModel->insert([
                 'apps_sub_category_pid' =>  $this->request->getVar('apps_sub_category_pid'),
                 'apps_document_title' =>  $this->request->getVar('apps_document_title'),
+                'apps_document_desc' => $this->request->getVar('apps_document_desc'),
                 'apps_document_file' =>  $appsDocumentFileName,
                 'apps_document_banner_img' =>  $appsDocumentBannerImgName,
                 'created_by' =>  session()->get('users_email')
@@ -164,9 +165,10 @@ class AppsDocumentationController extends BaseController
 
             $this->appsDocumentationModel->update($this->request->getVar('apps_document_pid'), [
                 'apps_sub_category_pid' => $this->request->getVar('apps_sub_category_pid'),
+                'apps_document_title' => $this->request->getVar('apps_document_title'),
+                'apps_document_desc' => $this->request->getVar('apps_document_desc'),
                 'apps_document_file' => !empty($appsDocumentFileName) ? $appsDocumentFileName : $appsDocumentation['apps_document_file'],
                 'apps_document_banner_img' => !empty($appsDocumentBannerImgName) ? $appsDocumentBannerImgName : $appsDocumentation['apps_document_banner_img'],
-                'apps_document_title' => $this->request->getVar('apps_document_title'),
                 'updated_at' => date("Y-m-d H:i:s"),
                 'updated_by' => session()->get('users_email')
             ]);

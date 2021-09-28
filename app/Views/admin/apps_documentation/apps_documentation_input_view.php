@@ -60,6 +60,16 @@
                         <div class="col-12">
                             <div class="mb-1 row">
                                 <div class="col-sm-3">
+                                    <label class="col-form-label text-black" for="apps_document_desc">Document Description</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <textarea name="apps_document_desc" id="apps_document_desc" class="form-control text-black" cols="30" rows="5"><?= old('apps_document_desc'); ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-1 row">
+                                <div class="col-sm-3">
                                     <label class="col-form-label text-black" for="apps_document_file">Upload Document File</label>
                                 </div>
                                 <div class="col-sm-6">
