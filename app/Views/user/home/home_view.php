@@ -63,8 +63,10 @@
                         <h5 class="card-title text-black fw-bolder"><?= $key['document_title']; ?></h5>
                         <ul style="list-style-type: none;" class="p-0">
                             <?php foreach ($documents as $key2) {
-                                if ($key2['document_title'] == $key['document_title']) { ?>
-                                    <li class="list-padding"><a href="<?= base_url('user/documentations/detail?pid=' . $key['pid'] . '&type=' . $key['document_type']); ?>" class="card-link"><?= $key['category_title']; ?></a></li>
+                                if ($key2['document_title'] == $key['document_title']) {
+                                    $link = $key2['document_type'] == 'sop' ? 'sop-documents' : 'apps-documentation';
+                            ?>
+                                    <li class="list-padding"><a href="<?= base_url('user/' . $link . '/detail/' . $key['pid']); ?>" class="card-link"><?= $key['category_title']; ?></a></li>
                             <?php }
                             } ?>
                         </ul>
