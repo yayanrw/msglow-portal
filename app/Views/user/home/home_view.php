@@ -56,45 +56,22 @@
 <section id="knowledge-base-documentation">
     <h4 class="fw-bolder text-black pb-1 pt-2">Documentations</h4>
     <div class="row">
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-black fw-bolder">Category #1</h5>
-                    <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
-                    </ul>
+        <?php foreach ($documents as $key) { ?>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-black fw-bolder"><?= $key['document_title']; ?></h5>
+                        <ul style="list-style-type: none;" class="p-0">
+                            <?php foreach ($documents as $key2) {
+                                if ($key2['document_title'] == $key['document_title']) { ?>
+                                    <li class="list-padding"><a href="<?= base_url('user/documentations/detail?pid=' . $key['pid'] . '&type=' . $key['document_type']); ?>" class="card-link"><?= $key['category_title']; ?></a></li>
+                            <?php }
+                            } ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-black fw-bolder">Category #2</h5>
-                    <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-black fw-bolder">Category #3</h5>
-                    <ul style="list-style-type: none;" class="p-0">
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #1</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #2</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #3</a></li>
-                        <li class="list-padding"><a href="<?= base_url('User/Documentations/detail/1'); ?>" class="card-link">Sub Category #4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
 
     </div>
 </section>
