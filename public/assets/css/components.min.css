@@ -3490,7 +3490,7 @@ table.dataTable thead .sorting_desc:before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;
-  color: #6e6b7b;
+  color: #fff;
   width: 14px;
   height: 14px;
   content: "";
@@ -3504,7 +3504,7 @@ table.dataTable thead .sorting_desc:after {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 12px;
-  color: #6e6b7b;
+  color: #fff;
   width: 14px;
   height: 14px;
   content: "";
