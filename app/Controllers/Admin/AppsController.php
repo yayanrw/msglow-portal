@@ -9,9 +9,9 @@ use App\Models\LogErrorModel;
 class AppsController extends BaseController
 {
     protected $router;
-    protected $appsModel;
     protected $logErrorModel;
     protected $validation;
+    protected $appsModel;
 
     public function __construct()
     {
