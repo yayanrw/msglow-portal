@@ -58,33 +58,48 @@
         <div class="shadow-bottom"></div>
         <div class="main-menu-content mt-2">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-                <li class="<?= $title == 'Home' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'Home' ? 'active' : null; ?> nav-item" onclick="sideBarClick('home')">
                     <a class="d-flex align-items-center" href="<?= base_url('admin'); ?>">
-                        <i data-feather='home'></i>
+                        <i id="icon-home" data-feather='home'></i>
+                        <div id="spinner-home" class="spinner-grow spinner-grow-sm me-1" role="status" hidden>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                         <span class="menu-title text-truncate" data-i18n="Email">Home</span>
                     </a>
                 </li>
-                <li class="<?= $title == 'Apps Management' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'Apps Management' ? 'active' : null; ?> nav-item" onclick="sideBarClick('apps-management')">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/apps-management'); ?>">
-                        <i data-feather='layers'></i>
+                        <i id="icon-apps-management" data-feather='layers'></i>
+                        <div id="spinner-apps-management" class="spinner-grow spinner-grow-sm me-1" role="status" hidden>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                         <span class="menu-title text-truncate" data-i18n="Email">Apps Management</span>
                     </a>
                 </li>
-                <li class="<?= $title == 'Apps Documentation' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'Apps Documentation' ? 'active' : null; ?> nav-item" onclick="sideBarClick('apps-documentation')">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/apps-documentation'); ?>">
-                        <i data-feather='codepen'></i>
+                        <i id="icon-apps-documentation" data-feather='codepen'></i>
+                        <div id="spinner-apps-documentation" class="spinner-grow spinner-grow-sm me-1" role="status" hidden>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                         <span class="menu-title text-truncate" data-i18n="Chat">Apps Documentation</span>
                     </a>
                 </li>
-                <li class="<?= $title == 'SOP Documents' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'SOP Documents' ? 'active' : null; ?> nav-item" onclick="sideBarClick('sop-documents')">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/sop-documents'); ?>">
-                        <i data-feather='book-open'></i>
+                        <i id="icon-sop-documents" data-feather='book-open'></i>
+                        <div id="spinner-sop-documents" class="spinner-grow spinner-grow-sm me-1" role="status" hidden>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                         <span class="menu-title text-truncate" data-i18n="Chat">SOP Documents</span>
                     </a>
                 </li>
-                <li class="<?= $title == 'Manage Users' ? 'active' : null; ?> nav-item">
+                <li class="<?= $title == 'Manage Users' ? 'active' : null; ?> nav-item" onclick="sideBarClick('users')">
                     <a class="d-flex align-items-center" href="<?= base_url('admin/users'); ?>">
-                        <i data-feather='user'></i>
+                        <i id="icon-users" data-feather='user'></i>
+                        <div id="spinner-users" class="spinner-grow spinner-grow-sm me-1" role="status" hidden>
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
                         <span class="menu-title text-truncate" data-i18n="Chat">Users</span>
                     </a>
                 </li>
@@ -129,6 +144,12 @@
 
     <?= $this->include('layout/js_view'); ?>
     <?= $this->renderSection('custom_js'); ?>
+    <script>
+        sideBarClick = menu => {
+            $('#icon-' + menu).hide()
+            $('#spinner-' + menu).prop('hidden', false)
+        }
+    </script>
 
 </body>
 <!-- END: Body-->
