@@ -8,11 +8,10 @@
 <section id="knowledge-base-search">
     <div class="row">
         <div class="col-12">
-            <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/img/banner/banner.png'); ?>')">
+            <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/uploads/banners/' . $sop_documents->sop_documents_banner_img); ?>')">
                 <div class="card-body">
-                    <h1 class="text-black" style="font-size: 56px;">Document Title #1</h1>
-                    <a href="#" class="btn btn-light me-1">Category #1</a>
-                    <a href="#" class="btn btn-light">Sub-Category #1</a>
+                    <h1 class="text-black" style="font-size: 56px;"><?= $sop_documents->sop_documents_title; ?></h1>
+                    <a href="#" class="btn btn-light me-1"><?= $sop_documents->sop_category_title; ?></a>
                 </div>
             </div>
         </div>
