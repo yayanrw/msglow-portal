@@ -22,7 +22,9 @@ class HomeController extends BaseController
                 ->where('is_active', true)
                 ->get()
                 ->getResult('array'),
-            'documents' => db_connect()->query("select * from v_documents")->getResultArray()
+            'documents' => db_connect()
+                ->query("select * from v_documents order by rand()")
+                ->getResultArray()
         ];
         return view('user/home/home_view', $data);
     }
