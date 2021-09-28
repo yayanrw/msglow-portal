@@ -60,13 +60,13 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-black fw-bolder"><?= $key['document_title']; ?></h5>
+                        <h5 class="card-title text-black fw-bolder"><?= $key['category_title']; ?></h5>
                         <ul style="list-style-type: none;" class="p-0">
                             <?php foreach ($documents as $key2) {
-                                if ($key2['document_title'] == $key['document_title']) {
+                                if ($key2['category_title'] == $key['category_title']) {
                                     $link = $key2['document_type'] == 'sop' ? 'sop-documents' : 'apps-documentation';
                             ?>
-                                    <li class="list-padding"><a href="<?= base_url('user/' . $link . '/detail/' . $key['pid']); ?>" class="card-link"><?= $key['category_title']; ?></a></li>
+                                    <li class="list-padding"><a href="<?= base_url('user/' . $link . '/detail/' . $key['pid']); ?>" class="card-link"><?= $key['document_title']; ?></a></li>
                             <?php }
                             } ?>
                         </ul>
