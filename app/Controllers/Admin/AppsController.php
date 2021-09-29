@@ -111,6 +111,7 @@ class AppsController extends BaseController
                 'apps_date_release' => $this->request->getVar('apps_date_release'),
                 'apps_icon'         => $appsIconName,
                 'apps_banner_img'   => $appsBannerImgName,
+                'apps_bg_color'     => $this->request->getVar('apps_bg_color'),
                 'apps_key_session'  => $this->request->getVar('apps_key_session'),
                 'created_by'        => session()->get('users_email')
             ]);
@@ -172,6 +173,7 @@ class AppsController extends BaseController
                 'apps_date_release' => $this->request->getVar('apps_date_release'),
                 'apps_icon'         => !empty($appsIconName) ? $appsIconName : $apps['apps_icon'],
                 'apps_banner_img'   => !empty($appsBannerImgName) ? $appsBannerImgName : $apps['apps_banner_img'],
+                'apps_bg_color'     => $this->request->getVar('apps_bg_color'),
                 'apps_key_session'  => $this->request->getVar('apps_key_session'),
                 'updated_at'        => date("Y-m-d H:i:s"),
                 'updated_by'        => session()->get('users_email')
