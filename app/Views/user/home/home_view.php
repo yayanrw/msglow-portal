@@ -20,7 +20,6 @@
                 ?
                 (t.filter(function() {
                         $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1);
-                        // console.log($(".kb-search-content-info .kb-search-content:visible").length);
                     }),
                     0 == $(".kb-search-content-info .kb-search-content:visible").length ?
                     n.removeClass("no-items") :
@@ -31,13 +30,14 @@
                 ?
                 (a.filter(function() {
                         $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1);
-                        // console.log($(".kb-search-content-info-apps .kb-search-content-apps:visible").length);
                     }),
-
                     0 == $(".kb-search-content-info-apps .kb-search-content-apps:visible").length ?
-                    p.removeClass("no-items-apps") :
-                    p.hasClass("no-items-apps") || p.addClass("no-items-apps")) :
+                    $('#apps-not-found').toggle(true) :
+                    $('#apps-not-found').toggle(false)) :
                 a.show();
+            // $(".kb-search-content-info-apps .kb-search-content-apps").filter(function() {
+            //     $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1);
+            // });
         });
     });
 </script>
@@ -72,20 +72,22 @@
     <div class="row kb-search-content-info-apps">
         <?php
         foreach ($apps as $a) { ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer kb-search-content-apps" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
-                <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
-                    <div class="card-body p-1">
-                        <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps">
+                <div class="d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
+                    <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
+                        <div class="card-body p-1">
+                            <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+                        </div>
                     </div>
-                </div>
-                <div class="ps-1">
-                    <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
-                    <p class="card-text"><?= $a['apps_subname']; ?></p>
+                    <div class="ps-1">
+                        <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
+                        <p class="card-text"><?= $a['apps_subname']; ?></p>
+                    </div>
                 </div>
             </div>
         <?php } ?>
         <div class="col-12 text-center no-result-apps no-items-apps">
-            <h4 class="mt-4">Search result not found!!</h4>
+            <h4 id="apps-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
         </div>
     </div>
 </section>
@@ -115,7 +117,7 @@
         <?php } ?>
 
         <div class="col-12 text-center no-result no-items">
-            <h4 class="mt-4">Search result not found!!</h4>
+            <h4 class="mt-4">Documentations not found!!</h4>
         </div>
     </div>
 </section>
