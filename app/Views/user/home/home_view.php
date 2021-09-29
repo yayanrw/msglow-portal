@@ -73,7 +73,7 @@
         <?php
         foreach ($apps as $a) { ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-inline-flex d-flex align-items-center pb-3 pointer kb-search-content-apps" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
-                <div class="card text-center bg-primary w-20 m-0">
+                <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
                     <div class="card-body p-1">
                         <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
                     </div>
