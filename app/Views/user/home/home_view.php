@@ -48,7 +48,7 @@
 <section id="knowledge-base-search">
     <div class="row">
         <div class="col-12">
-            <div class="card knowledge-base-bg text-center" style="background-image: url('../assets/img/banner/banner_home.jpg')">
+            <div class="card knowledge-base-bg text-center" style="background-image: url('<?= base_url('assets/img/banner/banner_home.jpg'); ?>')">
                 <div class="card-body">
                     <h2 class="text-black">Welcome back, <?= session()->get('users_name'); ?></h2>
                     <p class="card-text mb-2 text-black">
