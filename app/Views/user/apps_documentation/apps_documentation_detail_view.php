@@ -21,9 +21,13 @@
         <div class="col-12">
             <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/uploads/banners/' . $apps_documentation->apps_document_banner_img); ?>')">
                 <div class="card-body">
-                    <h1 class="text-black" style="font-size: 56px;"><?= $apps_documentation->apps_document_title; ?></h1>
-                    <a href="#" class="btn btn-light me-1"><?= $apps_documentation->apps_name; ?> - <?= $apps_documentation->apps_subname; ?></a>
-                    <a href="#" class="btn btn-light waves-effect waves-float waves-light"><?= $apps_documentation->apps_sub_category_title; ?></a>
+                    <div class="row">
+                        <div class="col-8">
+                            <h1 class="text-black" style="font-size: 56px;"><?= $apps_documentation->apps_document_title; ?></h1>
+                            <a href="#" class="btn btn-light me-1"><?= $apps_documentation->apps_name; ?> - <?= $apps_documentation->apps_subname; ?></a>
+                            <a href="#" class="btn btn-light waves-effect waves-float waves-light"><?= $apps_documentation->apps_sub_category_title; ?></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
