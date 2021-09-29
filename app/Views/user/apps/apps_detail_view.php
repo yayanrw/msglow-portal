@@ -34,7 +34,9 @@
         <div class="col-lg-3 offset-lg-1">
             <div class="row">
                 <h6 class="text-black">Go to:</h6>
-                <a href="<?= $apps['apps_url']; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2"><?= $apps['apps_subname']; ?> <?= $apps['apps_name']; ?></a>
+                <a href="<?= $apps['apps_url']; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2">
+                    <h3 class="text-white"><?= $apps['apps_subname']; ?></h3> <?= $apps['apps_name']; ?>
+                </a>
             </div>
         </div>
     </div>
