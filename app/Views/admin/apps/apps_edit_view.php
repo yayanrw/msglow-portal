@@ -7,6 +7,7 @@
 
 <?= $this->section('custom_js'); ?>
 <script src="<?= base_url('assets/js/jquery.validate.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jscolor.js'); ?>"></script>
 <script>
     $(function() {
         'use strict';
@@ -164,6 +165,16 @@
                                             </ul>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-1 row">
+                                <div class="col-sm-3">
+                                    <label class="col-form-label text-black" for="apps_bg_color">App Backgroud Color</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="text" id="apps_bg_color" class="form-control text-black" name="apps_bg_color" placeholder="App background color" value="<?= $apps['apps_bg_color']; ?>" data-jscolor="{}">
                                 </div>
                             </div>
                         </div>
