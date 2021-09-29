@@ -3,6 +3,56 @@
 <?= $this->section('custom_css'); ?>
 <link rel="stylesheet" href="<?= base_url('assets/css/page-knowledge-base.min.css'); ?>">
 <?= $this->include('user/home/home_css_view'); ?>
+<style>
+    .hvr-float-shadow {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+    }
+
+    .hvr-float-shadow:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        top: 100%;
+        left: 5%;
+        height: 10px;
+        width: 90%;
+        opacity: 0;
+        background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        /* W3C */
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform, opacity;
+        transition-property: transform, opacity;
+    }
+
+    .hvr-float-shadow:hover,
+    .hvr-float-shadow:focus,
+    .hvr-float-shadow:active {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+        /* move the element up by 5px */
+    }
+
+    .hvr-float-shadow:hover:before,
+    .hvr-float-shadow:focus:before,
+    .hvr-float-shadow:active:before {
+        opacity: 1;
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+        /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+    }
+</style>
 <?= $this->endSection(); ?>
 
 <?= $this->section('custom_js'); ?>
@@ -72,8 +122,8 @@
     <div class="row kb-search-content-info-apps">
         <?php
         foreach ($apps as $a) { ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps">
-                <div class="d-inline-flex d-flex align-items-center pb-3 pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
+                <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
                     <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
                         <div class="card-body p-1">
                             <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
