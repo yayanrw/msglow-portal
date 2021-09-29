@@ -15,17 +15,6 @@
 </style>
 <?= $this->endSection(); ?>
 
-<?= $this->section('custom_js'); ?>
-<script>
-    // var iframe = document.getElementById("myIframe");
-
-    // Adjusting the iframe height onload event
-    iframe.onload = function() {
-        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-    }
-</script>
-<?= $this->endSection(); ?>
-
 <?= $this->section('content'); ?>
 <section id="knowledge-base-search">
     <div class="row">
