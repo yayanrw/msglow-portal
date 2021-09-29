@@ -87,7 +87,7 @@ class AppsController extends BaseController
         try {
             if (!$this->validate([
                 'apps_icon' => [
-                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg+xml]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                    'rules' => 'max_size[apps_icon,100]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
                 ],
                 'apps_banner_img' => [
                     'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
@@ -116,11 +116,15 @@ class AppsController extends BaseController
             ]);
 
             if (!empty($appsIconName)) {
-                $appsIcon->move('assets/uploads/icons/', $appsIconName);
+                if ($appsIcon->isValid() && !$appsIcon->hasMoved()) {
+                    $appsIcon->move('assets/uploads/icons/');
+                }
             }
 
             if (!empty($appsBannerImgName)) {
-                $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+                if ($appsBannerImg->isValid() && !$appsBannerImg->hasMoved()) {
+                    $appsBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
@@ -142,7 +146,7 @@ class AppsController extends BaseController
         try {
             if (!$this->validate([
                 'apps_icon' => [
-                    'rules' => 'max_size[apps_icon,100]|mime_in[apps_icon,image/png,image/svg+xml]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
+                    'rules' => 'max_size[apps_icon,100]|ext_in[apps_icon,png,svg]|is_image[apps_icon]',
                 ],
                 'apps_banner_img' => [
                     'rules' => 'max_size[apps_banner_img,200]|mime_in[apps_banner_img,image/png,image/jpg,image/jpeg]|ext_in[apps_banner_img,png,jpg,jpeg]|is_image[apps_banner_img]',
@@ -177,14 +181,18 @@ class AppsController extends BaseController
                 if (isset($apps['apps_icon'])) {
                     unlink('assets/uploads/icons/' . $apps['apps_icon']);
                 }
-                $appsIcon->move('assets/uploads/icons/', $appsIconName);
+                if ($appsIcon->isValid() && !$appsIcon->hasMoved()) {
+                    $appsIcon->move('assets/uploads/icons/');
+                }
             }
 
             if (!empty($appsBannerImgName)) {
                 if (isset($apps['apps_banner_img'])) {
                     unlink('assets/uploads/banners/' . $apps['apps_banner_img']);
                 }
-                $appsBannerImg->move('assets/uploads/banners/', $appsBannerImgName);
+                if ($appsBannerImg->isValid() && !$appsBannerImg->hasMoved()) {
+                    $appsBannerImg->move('assets/uploads/banners/');
+                }
             }
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
             return redirect()->to('admin/apps-management');

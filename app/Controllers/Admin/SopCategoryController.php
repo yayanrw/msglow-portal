@@ -84,7 +84,9 @@ class SopCategoryController extends BaseController
             ]);
 
             if (!empty($sopCategoryBannerImgName)) {
-                $sopCategoryBannerImg->move('assets/uploads/banners/', $sopCategoryBannerImgName);
+                if ($sopCategoryBannerImg->isValid() && !$sopCategoryBannerImg->hasMoved()) {
+                    $sopCategoryBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
@@ -129,7 +131,10 @@ class SopCategoryController extends BaseController
                 if (isset($sopCategory['sop_category_banner_img'])) {
                     unlink('assets/uploads/banners/' . $sopCategory['sop_category_banner_img']);
                 }
-                $sopCategoryBannerImg->move('assets/uploads/banners/', $sopCategoryBannerImgName);
+
+                if ($sopCategoryBannerImg->isValid() && !$sopCategoryBannerImg->hasMoved()) {
+                    $sopCategoryBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);

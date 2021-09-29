@@ -119,11 +119,15 @@ class SopDocumentsController extends BaseController
             ]);
 
             if (!empty($sopDocumentsFileName)) {
-                $sopDocumentsFile->move('assets/uploads/documents/', $sopDocumentsFileName);
+                if ($sopDocumentsFile->isValid() && !$sopDocumentsFile->hasMoved()) {
+                    $sopDocumentsFile->move('assets/uploads/documents/');
+                }
             }
 
             if (!empty($sopDocumentsBannerImgName)) {
-                $sopDocumentsBannerImg->move('assets/uploads/banners/', $sopDocumentsBannerImgName);
+                if ($sopDocumentsBannerImg->isValid() && !$sopDocumentsBannerImg->hasMoved()) {
+                    $sopDocumentsBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
@@ -176,14 +180,18 @@ class SopDocumentsController extends BaseController
                 if (isset($sopDocuments['sop_documents_file'])) {
                     unlink('assets/uploads/documents/' . $sopDocuments['sop_documents_file']);
                 }
-                $sopDocumentsFile->move('assets/uploads/documents/', $sopDocumentsFileName);
+                if ($sopDocumentsFile->isValid() && !$sopDocumentsFile->hasMoved()) {
+                    $sopDocumentsFile->move('assets/uploads/documents/');
+                }
             }
 
             if (!empty($sopDocumentsBannerImgName)) {
                 if (isset($sopDocuments['sop_documents_banner_img'])) {
                     unlink('assets/uploads/banners/' . $sopDocuments['sop_documents_banner_img']);
                 }
-                $sopDocumentsBannerImg->move('assets/uploads/banners/', $sopDocumentsBannerImgName);
+                if ($sopDocumentsBannerImg->isValid() && !$sopDocumentsBannerImg->hasMoved()) {
+                    $sopDocumentsBannerImg->move('assets/uploads/banners/');
+                }
             }
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
             return redirect()->to('admin/sop-documents');

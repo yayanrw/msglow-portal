@@ -89,7 +89,9 @@ class AppsSubCategoryController extends BaseController
             ]);
 
             if (!empty($appsSubCategoryBannerImgName)) {
-                $appsSubCategoryBannerImg->move('assets/uploads/banners/', $appsSubCategoryBannerImgName);
+                if ($appsSubCategoryBannerImg->isValid() && !$appsSubCategoryBannerImg->hasMoved()) {
+                    $appsSubCategoryBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
@@ -134,7 +136,10 @@ class AppsSubCategoryController extends BaseController
                 if (isset($appsSubCategory['apps_sub_category_banner_img'])) {
                     unlink('assets/uploads/banners/' . $appsSubCategory['apps_sub_category_banner_img']);
                 }
-                $appsSubCategoryBannerImg->move('assets/uploads/banners/', $appsSubCategoryBannerImgName);
+
+                if ($appsSubCategoryBannerImg->isValid() && !$appsSubCategoryBannerImg->hasMoved()) {
+                    $appsSubCategoryBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);

@@ -120,11 +120,15 @@ class AppsDocumentationController extends BaseController
             ]);
 
             if (!empty($appsDocumentFileName)) {
-                $appsDocumentFile->move('assets/uploads/documents/', $appsDocumentFileName);
+                if ($appsDocumentFile->isValid() && !$appsDocumentFile->hasMoved()) {
+                    $appsDocumentFile->move('assets/uploads/documents/');
+                }
             }
 
             if (!empty($appsDocumentBannerImgName)) {
-                $appsDocumentBannerImg->move('assets/uploads/banners/', $appsDocumentBannerImgName);
+                if ($appsDocumentBannerImg->isValid() && !$appsDocumentBannerImg->hasMoved()) {
+                    $appsDocumentBannerImg->move('assets/uploads/banners/');
+                }
             }
 
             session()->setFlashdata('successMsg', $this->savedSuccessMsg);
@@ -177,14 +181,18 @@ class AppsDocumentationController extends BaseController
                 if (isset($appsDocumentation['apps_document_file'])) {
                     unlink('assets/uploads/documents/' . $appsDocumentation['apps_document_file']);
                 }
-                $appsDocumentFile->move('assets/uploads/documents/', $appsDocumentFileName);
+                if ($appsDocumentFile->isValid() && !$appsDocumentFile->hasMoved()) {
+                    $appsDocumentFile->move('assets/uploads/documents/');
+                }
             }
 
             if (!empty($appsDocumentBannerImgName)) {
                 if (isset($appsDocumentation['apps_document_banner_img'])) {
                     unlink('assets/uploads/banners/' . $appsDocumentation['apps_document_banner_img']);
                 }
-                $appsDocumentBannerImg->move('assets/uploads/banners/', $appsDocumentBannerImgName);
+                if ($appsDocumentBannerImg->isValid() && !$appsDocumentBannerImg->hasMoved()) {
+                    $appsDocumentBannerImg->move('assets/uploads/banners/');
+                }
             }
             session()->setFlashdata('successMsg', $this->updatedSuccessMsg);
             return redirect()->to('admin/apps-documentation');
