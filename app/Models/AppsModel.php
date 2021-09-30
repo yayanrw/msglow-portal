@@ -21,7 +21,8 @@ class AppsModel extends Model
             FROM `m_apps`
             JOIN `t_access_mapping` ON `t_access_mapping`.`apps_pid` = `m_apps`.`apps_pid`
             JOIN `m_users` ON `m_users`.`users_email` = `t_access_mapping`.`users_email`
-            and `m_users`.`users_pid` = "' . $user_pid . '" where is_active = true')
+            and `m_users`.`users_pid` = "' . $user_pid . '" where is_active = true
+            order by m_apps.apps_name')
             ->getResultArray();
     }
 
@@ -31,7 +32,8 @@ class AppsModel extends Model
             FROM `m_apps`
             LEFT JOIN `t_access_mapping` ON `t_access_mapping`.`apps_pid` = `m_apps`.`apps_pid`
             LEFT JOIN `m_users` ON `m_users`.`users_email` = `t_access_mapping`.`users_email`
-            and `m_users`.`users_pid` = "' . $user_pid . '" where is_active = true and m_users.users_email is null')
+            and `m_users`.`users_pid` = "' . $user_pid . '" where is_active = true and m_users.users_email is null
+            order by m_apps.apps_name')
             ->getResultArray();
     }
 }
