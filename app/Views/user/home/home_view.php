@@ -63,7 +63,9 @@
             t = $(".kb-search-content-info .kb-search-content"),
             n = $(".kb-search-content-info .no-result"),
             a = $(".kb-search-content-info-apps .kb-search-content-apps"),
-            p = $(".kb-search-content-info-apps .no-result-apps");
+            p = $(".kb-search-content-info-apps .no-result-apps"),
+            z = $(".kb-search-content-info-apps2 .kb-search-content-apps2"),
+            x = $(".kb-search-content-info-apps2 .no-result-apps2");
         e.on("keyup", function() {
             var e = $(this).val().toLowerCase();
             "" != e
@@ -85,9 +87,15 @@
                     $('#apps-not-found').toggle(true) :
                     $('#apps-not-found').toggle(false)) :
                 a.show();
-            // $(".kb-search-content-info-apps .kb-search-content-apps").filter(function() {
-            //     $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1);
-            // });
+            "" != e
+                ?
+                (z.filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(e) > -1);
+                    }),
+                    0 == $(".kb-search-content-info-apps2 .kb-search-content-apps2:visible").length ?
+                    $('#apps2-not-found').toggle(true) :
+                    $('#apps2-not-found').toggle(false)) :
+                z.show();
         });
     });
 </script>
@@ -145,10 +153,10 @@
 
 <section id="knowledge-base-content">
     <h4 class="fw-bolder text-black pb-1 pt-2">Non-accessible Apps</h4>
-    <div class="row kb-search-content-info-apps">
+    <div class="row kb-search-content-info-apps2">
         <?php
         foreach ($apps_nonaccessible as $a) { ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps2 hvr-float-shadow mb-3">
                 <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
                     <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
                         <div class="card-body p-1">
@@ -162,8 +170,8 @@
                 </div>
             </div>
         <?php } ?>
-        <div class="col-12 text-center no-result-apps no-items-apps">
-            <h4 id="apps-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
+        <div class="col-12 text-center no-result-apps2 no-items-apps2">
+            <h4 id="apps2-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
         </div>
     </div>
 </section>
