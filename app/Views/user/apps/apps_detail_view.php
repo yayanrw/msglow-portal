@@ -33,8 +33,8 @@
         </div>
         <div class="col-lg-3 offset-lg-1">
             <div class="row">
-                <h6 class="text-black">Go to:</h6>
-                <a href="<?= $apps['apps_url']; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2"><?= $apps['apps_name']; ?> - <?= $apps['apps_subname']; ?> </a>
+                <h6 class="text-black p-0 mb-1">Go to:</h6>
+                <a href="<?= $apps['apps_url']; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2" style="font-size: 14px;width: auto;"><?= $apps['apps_name']; ?> - <?= $apps['apps_subname']; ?> </a>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
 
         <?php
         foreach ($apps_documentation as $key) { ?>
-            <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="card">
                     <div class="card-body">
                         <div>
