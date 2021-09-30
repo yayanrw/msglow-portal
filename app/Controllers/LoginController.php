@@ -58,6 +58,7 @@ class LoginController extends BaseController
                 if (password_verify($loginInformation['users_password'], $users->users_password)) {
                     //store session
                     $sessionData = [
+                        'users_pid'        => $users->users_pid,
                         'users_email'      => $users->users_email,
                         'users_name'       => $users->users_name,
                         'users_division'   => $users->users_division,
