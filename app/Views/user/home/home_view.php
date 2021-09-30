@@ -146,7 +146,7 @@
             </div>
         <?php } ?>
         <div class="col-12 text-center no-result-apps no-items-apps">
-            <h4 id="apps-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
+            <h4 id="apps-not-found" class="mt-4" style="display: none;">Accessible apps not found!!</h4>
         </div>
     </div>
 </section>
@@ -171,7 +171,7 @@
             </div>
         <?php } ?>
         <div class="col-12 text-center no-result-apps2 no-items-apps2">
-            <h4 id="apps2-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
+            <h4 id="apps2-not-found" class="mt-4" style="display: none;">Non-accessible apps not found!!</h4>
         </div>
     </div>
 </section>
