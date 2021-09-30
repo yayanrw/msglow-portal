@@ -119,28 +119,63 @@
 
 <!-- Knowledge base -->
 <section id="knowledge-base-content" class="pt-3">
+    <h4 class="fw-bolder text-black pb-1 pt-2">Accessible Apps</h4>
     <div class="row kb-search-content-info-apps">
         <?php
-        foreach ($apps as $a) { ?>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
-                <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
-                    <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
-                        <div class="card-body p-1">
-                            <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+        foreach ($apps as $a) {
+            if (!is_null($a['users_pid'])) { ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
+                    <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
+                        <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
+                            <div class="card-body p-1">
+                                <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+                            </div>
+                        </div>
+                        <div class="ps-1">
+                            <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
+                            <p class="card-text"><?= $a['apps_subname']; ?></p>
                         </div>
                     </div>
-                    <div class="ps-1">
-                        <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
-                        <p class="card-text"><?= $a['apps_subname']; ?></p>
-                    </div>
                 </div>
-            </div>
-        <?php } ?>
+        <?php }
+        } ?>
         <div class="col-12 text-center no-result-apps no-items-apps">
             <h4 id="apps-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
         </div>
     </div>
 </section>
+
+<section id="knowledge-base-content" class="pt-3">
+    <h4 class="fw-bolder text-black pb-1 pt-2">Non-accessible Apps</h4>
+    <div class="row kb-search-content-info-apps">
+        <?php
+        foreach ($apps as $a) {
+            if (is_null($a['users_pid'])) {
+        ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
+                    <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
+                        <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
+                            <div class="card-body p-1">
+                                <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+                            </div>
+                        </div>
+                        <div class="ps-1">
+                            <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
+                            <p class="card-text"><?= $a['apps_subname']; ?></p>
+                        </div>
+                    </div>
+                </div>
+        <?php
+            }
+        } ?>
+        <div class="col-12 text-center no-result-apps no-items-apps">
+            <h4 id="apps-not-found" class="mt-4" style="display: none;">Apps not found!!</h4>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- Knowledge base ends -->
 
 <!-- Documentations -->
