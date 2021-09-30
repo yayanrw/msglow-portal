@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-10 offset-1">
             <div class="embed-responsive embed-responsive-21by9">
-                <iframe class="embed-responsive-item" id="myIframe" src="<?= base_url('assets/uploads/documents/' . $apps_documentation->apps_document_file); ?>#zoom=100&toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%" style="border: none;"></iframe>
+                <iframe class="embed-responsive-item" id="myIframe" src="<?= base_url('assets/uploads/documents/' . $apps_documentation->apps_document_file); ?>#zoom=100&toolbar=0&navpanes=0&scrollbar=0&view=fitH,100" width="100%" height="100vh" style="border: none;"></iframe>
             </div>
         </div>
     </div>
