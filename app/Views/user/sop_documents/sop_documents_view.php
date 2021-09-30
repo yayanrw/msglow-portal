@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card knowledge-base-bg" style="background-image: url('<?= base_url('assets/img/banner/banner_sop.jpg'); ?>')">
-                <div class="card-body">
+                <div class="card-body" style="padding: 8rem">
                     <h1 class="text-black" style="font-size: 56px;"><?= $title; ?></h1>
                 </div>
             </div>

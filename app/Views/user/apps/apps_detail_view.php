@@ -28,7 +28,7 @@
 <section id="knowledge-base-content">
     <div class="row">
         <div class="col-lg-8">
-            <h3 class="text-black fw-bolder">Short description intro</h3>
+            <h3 class="text-black fw-bolder">Description</h3>
             <p class="text-black"><?= $apps['apps_desc']; ?></p>
         </div>
         <div class="col-lg-3 offset-lg-1">
