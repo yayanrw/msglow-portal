@@ -18,10 +18,7 @@ class HomeController extends BaseController
     {
         $data = [
             'title'   => 'Home',
-            'apps'  => $this->appsModel
-                ->where('is_active', true)
-                ->get()
-                ->getResult('array'),
+            'apps'  => $this->appsModel->AppsWithUsers(session()->get('users_pid')),
             'documents' => db_connect()
                 ->query("select * from v_documents order by rand()")
                 ->getResultArray()

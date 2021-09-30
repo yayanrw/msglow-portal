@@ -14,4 +14,14 @@ class AppsModel extends Model
     {
         return $this->join('t_apps_sub_category', 't_apps_sub_category.apps_pid = m_apps.apps_pid')->get();
     }
+
+    public function AppsWithUsers($user_pid = null)
+    {
+        return db_connect()->query('SELECT m_apps.*, m_users.*
+            FROM `m_apps`
+            LEFT JOIN `t_access_mapping` ON `t_access_mapping`.`apps_pid` = `m_apps`.`apps_pid`
+            LEFT JOIN `m_users` ON `m_users`.`users_email` = `t_access_mapping`.`users_email`
+            and `m_users`.`users_pid` = "' . $user_pid . '" where is_active = true')
+            ->getResultArray();
+    }
 }
