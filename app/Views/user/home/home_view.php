@@ -57,6 +57,12 @@
 
 <?= $this->section('custom_js'); ?>
 <script>
+    $('#searchbar').keydown(function(e) {
+        if (e.which == 13) {
+            return false;
+        }
+    });
+
     $(function() {
         "use strict";
         var e = $("#searchbar"),
