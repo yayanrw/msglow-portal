@@ -34,9 +34,13 @@
         <div class="col-lg-3 offset-lg-1">
             <div class="row">
                 <h6 class="text-black p-0 mb-1">Go to:</h6>
-                <?php $is_auth = !isset($access_mapping); ?>
-                <a href="<?= !$is_auth ? $apps['apps_url'] : null; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2 mb-1 <?= $is_auth ? 'disabled' : null; ?>" style="font-size: 14px;width: auto;"><?= $apps['apps_name']; ?><?= $apps['apps_subname'] !== '' ? ' - ' . $apps['apps_subname'] : null ?> </a>
-                <span class="text-danger font-small-2 text-text-start p-0 <?= !$is_auth ? 'hidden' : null; ?>">*You aren't authorized to access this apps</span>
+                <?php if ($apps['is_need_login']) { ?>
+                    <?php $is_auth = !isset($access_mapping); ?>
+                    <a href="<?= !$is_auth ? $apps['apps_url'] : null; ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2 mb-1 <?= $is_auth ? 'disabled' : null; ?>" style="font-size: 14px;width: auto;"><?= $apps['apps_name']; ?><?= $apps['apps_subname'] !== '' ? ' - ' . $apps['apps_subname'] : null ?> </a>
+                    <span class="text-danger font-small-2 text-text-start p-0 <?= !$is_auth ? 'hidden' : null; ?>">*You aren't authorized to access this apps</span>
+                <?php } else { ?>
+                    <a href="<?= $apps['apps_url'] ?>" target="_blank" class="btn btn-primary btn-lg pt-2 pb-2 mb-1" style="font-size: 14px;width: auto;"><?= $apps['apps_name']; ?><?= $apps['apps_subname'] !== '' ? ' - ' . $apps['apps_subname'] : null ?> </a>
+                <?php } ?>
             </div>
         </div>
     </div>
