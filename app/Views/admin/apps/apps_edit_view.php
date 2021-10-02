@@ -181,6 +181,25 @@
                         <div class="col-12">
                             <div class="mb-1 row">
                                 <div class="col-sm-3">
+                                    <label class="col-form-label text-black" for="apps_key_session">Login System Apps</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="demo-inline-spacing">
+                                        <div class="form-check form-check-inline m-0 pe-1" style="padding-top: 0.5rem">
+                                            <input class="form-check-input" type="radio" name="is_need_login" id="is_need_login_true" value="true" <?= $apps['is_need_login'] ? 'checked' : null ?>>
+                                            <label class="form-check-label" for="is_need_login_true">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline m-0" style="padding-top: 0.5rem">
+                                            <input class="form-check-input" type="radio" name="is_need_login" id="is_need_login_false" value="false" <?= $apps['is_need_login'] ? null : 'checked' ?>>
+                                            <label class="form-check-label" for="is_need_login_false">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mb-1 row">
+                                <div class="col-sm-3">
                                     <label class="col-form-label text-black" for="apps_key_session">App Key Session</label>
                                 </div>
                                 <div class="col-sm-9">
