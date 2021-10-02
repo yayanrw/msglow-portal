@@ -65,7 +65,7 @@
                                     <label class="col-form-label text-black" for="apps_desc">App Description</label>
                                 </div>
                                 <div class="col-sm-9">
-                                    <textarea id="apps_desc" name="apps_desc" class="form-control text-black" placeholder="App description"><?= $apps['apps_desc']; ?></textarea>
+                                    <textarea id="apps_desc" name="apps_desc" class="form-control text-black" rows="5" placeholder="App description"><?= $apps['apps_desc']; ?></textarea>
                                 </div>
                             </div>
                         </div>
