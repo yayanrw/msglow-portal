@@ -130,6 +130,22 @@
     <h4 class="fw-bolder text-black pb-1 pt-2">Accessible Apps</h4>
     <div class="row kb-search-content-info-apps">
         <?php
+        foreach ($apps_with_no_login_system as $a) { ?>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
+                <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
+                    <div class="card text-center w-20 m-0" style="background-color: <?= $a['apps_bg_color']; ?>;">
+                        <div class="card-body p-1">
+                            <img src="<?= base_url('assets/uploads/icons/' . $a['apps_icon']) ?>" alt="<?= $a['apps_name']; ?>" width="32" height="32">
+                        </div>
+                    </div>
+                    <div class="ps-1">
+                        <h5 class="fw-bolder mb-0 text-black text-wrap"><?= $a['apps_name']; ?></h5>
+                        <p class="card-text"><?= $a['apps_subname']; ?></p>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <?php
         foreach ($apps_accessible as $a) { ?>
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 kb-search-content-apps hvr-float-shadow mb-3">
                 <div class="d-inline-flex d-flex align-items-center pointer" onclick="window.location='<?= base_url('user/apps/detail/' . $a['apps_pid']); ?>'">
