@@ -30,6 +30,22 @@
 </style>
 <?= $this->endSection(); ?>
 
+<?= $this->section('content_button'); ?>
+<div class="dt-action-buttons text-end">
+    <div class="dt-buttons d-inline-flex">
+        <a class="dt-button create-new btn btn-primary" href="<?= base_url('admin/users/input'); ?>">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus me-50 font-small-4">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                Input New User
+            </span>
+        </a>
+    </div>
+</div>
+<?= $this->endSection(); ?>
+
 <?= $this->section('custom_js'); ?>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>

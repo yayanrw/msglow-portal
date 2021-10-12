@@ -80,6 +80,8 @@ $routes->group('admin', ['filter' => 'is_admin'], function ($routes) {
 
     // users
     $routes->add('users', 'Admin\UsersController::Index');
+    $routes->add('users/input', 'Admin\UsersController::Input');
+    $routes->post('users/insert', 'Admin\UsersController::Insert');
     $routes->add('users/edit/(:any)', 'Admin\UsersController::Edit/$1');
     $routes->add('users/update', 'Admin\UsersController::Update');
 });

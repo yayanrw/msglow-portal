@@ -25,6 +25,8 @@ class LoginController extends BaseController
         try {
             if (session()->get('logged_in')) {
                 if (session()->get('is_admin')) {
+                    dd(session_id());
+
                     return redirect()->to('/admin');
                 } else {
                     return redirect()->to('/user');
