@@ -214,7 +214,7 @@ class AppsDocumentationController extends BaseController
             $apps_documentation = $this->appsDocumentationModel
                 ->AppsDocumentationWithAppsSubCategoryDetail($apps_document_pid);
             $this->appsDocumentationModel->update($apps_document_pid, [
-                'is_active'   => !$apps_documentation->is_active,
+                'is_active'   => $apps_documentation->is_active == "1" ? 0 : 1,
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);

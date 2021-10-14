@@ -156,7 +156,7 @@ class SopCategoryController extends BaseController
         try {
             $sop_category = $this->sopCategoryModel->find($sop_category_pid);
             $this->sopCategoryModel->update($sop_category_pid, [
-                'is_active'   => !$sop_category['is_active'],
+                'is_active'   => $sop_category['is_active'] == "1" ? 0 : 1,
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);

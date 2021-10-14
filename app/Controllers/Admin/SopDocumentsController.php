@@ -213,7 +213,7 @@ class SopDocumentsController extends BaseController
             $sop_documents = $this->sopDocumentsModel
                 ->SopDocumentsWithSopCategoryDetail($sop_documents_pid);
             $this->sopDocumentsModel->update($sop_documents_pid, [
-                'is_active'   => !$sop_documents->is_active,
+                'is_active'   => $sop_documents->is_active == "1" ? 0 : 1,
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);

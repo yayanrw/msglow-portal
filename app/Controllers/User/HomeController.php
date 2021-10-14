@@ -22,7 +22,7 @@ class HomeController extends BaseController
             'apps_with_no_login_system'  => $this->appsModel->AppsWithNoLoginSystem(),
             'apps_nonaccessible'  => $this->appsModel->AppsNotWithUsers(session()->get('users_pid')),
             'documents' => db_connect()
-                ->query("select * from v_documents order by rand()")
+                ->query("select * from v_documents order by rand() where ")
                 ->getResultArray()
         ];
         return view('user/home/home_view', $data);

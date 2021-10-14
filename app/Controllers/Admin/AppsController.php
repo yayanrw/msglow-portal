@@ -217,7 +217,7 @@ class AppsController extends BaseController
         try {
             $apps = $this->appsModel->find($apps_pid);
             $this->appsModel->update($apps_pid, [
-                'is_active'   => !$apps['is_active'],
+                'is_active'   => $apps['is_active'] == "1" ? 0 : 1,
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);

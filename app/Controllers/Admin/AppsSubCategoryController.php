@@ -162,7 +162,7 @@ class AppsSubCategoryController extends BaseController
             $apps_sub_category = $this->appsSubCategoryModel
                 ->AppsSubCategoryWithAppsDetail($apps_sub_category_pid);
             $this->appsSubCategoryModel->update($apps_sub_category_pid, [
-                'is_active'   => !$apps_sub_category->is_active,
+                'is_active'   => $apps_sub_category->is_active == "1" ? 0 : 1,
                 'updated_at'  => date('Y-m-d H:i:s'),
                 'updated_by'  => session()->get('users_email')
             ]);
